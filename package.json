@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "file-saver": "^2.0.2",
     "firebase": "^6.6.1",
+    "scss": "^0.2.4",
     "vue": "^2.6.10",
     "vue-i18n": "^8.14.1",
     "vue-router": "^3.0.3",

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <AppHeader/>
+    <!-- <AppHeader/> -->
     <router-view/>
-    <AppFooter/>
+    <!-- <AppFooter/> -->
   </div>
 </template>
 <script>

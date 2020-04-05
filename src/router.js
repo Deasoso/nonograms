@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import ChooseLanguage from './views/ChooseLanguage';
 import PageNotFound from './views/NotFound';
+import Story from './views/Story';
+import Title from './views/Title';
 
 Vue.use(Router);
 
@@ -12,8 +14,18 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'story',
+      component: Story
+    },
+    {
+      path: '/language',
       name: 'choose_language',
       component: ChooseLanguage
+    },
+    {
+      path: '/title',
+      name: 'title',
+      component: Title
     },
     {
       path: '/:lang/about',

@@ -5,6 +5,8 @@ import * as MutationTypes from './mitations-types';
 import variables from '../variables';
 import GameModel from '@/models/GameModel';
 import db from '../firebase';
+import FileSaver from 'file-saver';
+import stages from '../stages/games.json'
 
 Vue.use(Vuex);
 
@@ -148,12 +150,12 @@ export default new Vuex.Store({
       commit(MutationTypes.SET_GAMES_LIST_LOADING_STATUS, 'loading');
 
       try {
-        let gamesList = [];
-        const querySnapshot = await db.collection('games').get();
-        if (querySnapshot.empty) throw new Error('No games found');
-        querySnapshot.forEach(document => {
-          gamesList.push(GameModel.fromFirestore(document));
-        });
+        let gamesList = stages; //[];
+        // const querySnapshot = await db.collection('games').get();
+        // if (querySnapshot.empty) throw new Error('No games found');
+        // querySnapshot.forEach(document => {
+        //   gamesList.push(GameModel.fromFirestore(document));
+        // });
 
         commit(MutationTypes.SET_GAMES_LIST, gamesList);
         commit(MutationTypes.SET_GAMES_LIST_LOADING_STATUS, 'done');
