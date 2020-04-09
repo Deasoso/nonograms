@@ -5,6 +5,7 @@ import ChooseLanguage from './views/ChooseLanguage';
 import PageNotFound from './views/NotFound';
 import Story from './views/Story';
 import Title from './views/Title';
+import Stages from './views/Stages';
 
 Vue.use(Router);
 
@@ -26,6 +27,11 @@ export default new Router({
       path: '/title',
       name: 'title',
       component: Title
+    },
+    {
+      path: '/stages',
+      name: 'stages',
+      component: Stages
     },
     {
       path: '/:lang/about',
