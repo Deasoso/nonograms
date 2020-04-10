@@ -1,9 +1,10 @@
 @import "../config";
 
 #game {
-  display: grid;
-  grid-gap: 15px;
-  grid-template-rows: 1fr 35px;
+  // display: grid;
+  // grid-gap: 15px;
+  // grid-template-rows: 1fr 35px;
+  height: 100vh;
   position: relative;
 
   &.hasKeyboard {

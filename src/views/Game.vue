@@ -1,5 +1,6 @@
 <template>
-  <div id="game" class="container" :class="{'hasKeyboard': gameMode === variables.GAME_MODE_KEYBOARD}">
+  <div id="game" :class="{'hasKeyboard': gameMode === variables.GAME_MODE_KEYBOARD}">
+    <img class="game_background" src="http://pic.deaso40.com/ljhy/关卡背景补充/背景.png" />
     <div class="done" v-if="showDonePopup">
       <p>{{ $t('game.game_is_finished') }}</p>
       <div class="buttons">
@@ -27,7 +28,7 @@
       />
     </div>
 
-    <div class="controls" v-if="gameData">
+    <!-- <div class="controls" v-if="gameData">
       <div class="buttons">
         <button
           :disabled="gameState === variables.GAME_IS_NEW"
@@ -44,6 +45,15 @@
         @move="moveActiveCell($event)"
         @select="selectActiveCell($event)"
       />
+    </div> -->
+    <img class="game_goback" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
+    <img class="game_title" src="http://pic.deaso40.com/ljhy/5立春/关卡-标题.png" />
+    <img class="game_cell" src="http://pic.deaso40.com/ljhy/5立春/关卡-规格.png" />
+    <img class="game_time" src="http://pic.deaso40.com/ljhy/5立春/关卡-时间.png" />
+    <img class="game_girl" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
+    <img class="game_item" src="http://pic.deaso40.com/ljhy/5立春/关卡-锦囊.png" />
+    <div class="game_timetext">
+      1234
     </div>
   </div>
 </template>
@@ -121,3 +131,67 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.game_background{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -100;
+}
+.game_goback{
+  position: absolute;
+  width: 46px;
+  height: auto;
+  top: 8px;
+  left: 8px;
+}
+.game_title{
+  position: absolute;
+  width: 120px;
+  height: auto;
+  left: calc(50vw - 60px);
+  top: 16px;
+}
+.game_cell{
+  position: absolute;
+  width: 60px;
+  height: auto;
+  left: calc(50vw - 30px);
+  top: 68px;
+}
+.game_time{
+  position: absolute;
+  width: 68px;
+  height: auto;
+  right: 12px;
+  top: 66px;
+}
+.game_timetext{
+  position: absolute;
+  width: 44px;
+  height: auto;
+  right: 24px;
+  top: 74px;
+  font-size: 12px;
+  color: #ffffff;
+  text-align:right;
+}
+.game_item{
+  position: absolute;
+  width: 50px;
+  height: auto;
+  bottom: 5px;
+  right: 5px;
+}
+.game_girl{
+  position: absolute;
+  width: 100px;
+  height: auto;
+  bottom: 0px;
+  left: 0px;
+}
+</style>

@@ -8,23 +8,23 @@
 
 #gameFieldWrapper {
   height: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 #field {
   display: inline-grid;
   font-size: var(--cell-font-size);
   grid-template-columns: auto 1fr;
-  outline: 2px solid $color-vue-gray;
+  // outline: 2px solid $color-vue-gray;
 
-  .hovered {
-    background: #ffffcc;
-  }
+  // .hovered {
+  //   background: #ffffcc;
+  // }
 
   .active {
     box-shadow: 0 0 0 2px red inset;
   }
-  
+
   .hNumbers {
     display: flex;
     padding-left: 1px;
@@ -96,10 +96,13 @@
       }
     }
   }
-
+  
   .game {
-    border-left: 1px solid $color-vue-gray;
-    border-top: 1px solid $color-vue-gray;
+    border: 2px solid #000000;
+    position: fixed;
+    left: 85px;
+    top: 176px;
+    background-color: #252c46;
 
     div {
       overflow: hidden;
@@ -110,8 +113,7 @@
     }
 
     .cell {
-      border-left: 1px solid $color-vue-gray;
-      border-top: 1px solid $color-vue-gray;
+      border: 1px solid #475aa0;
       cursor: pointer;
       display: block;
       float: left;
@@ -123,31 +125,31 @@
       }
     }
 
-    .filled {
-      background: $color-vue-green;
-    }
+    // .filled {
+    //   background: $color-vue-green;
+    // }
 
-    .cancelled {
-      position: relative;
+    // .cancelled {
+    //   position: relative;
 
-      &:before, &:after {
-        background: $color-vue-gray;
-        content: '';
-        height: 1px;
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(45deg);
-        width: 100%;
-      }
+    //   &:before, &:after {
+    //     background: $color-vue-gray;
+    //     content: '';
+    //     height: 1px;
+    //     left: 50%;
+    //     position: absolute;
+    //     top: 50%;
+    //     transform: translate(-50%, -50%) rotate(45deg);
+    //     width: 100%;
+    //   }
 
-      &:after {
-        transform: translate(-50%, -50%) rotate(-45deg);
-      }
-    }
+    //   &:after {
+    //     transform: translate(-50%, -50%) rotate(-45deg);
+    //   }
+    // }
 
-    .noticed {
-      background: #cc0000;
-    }
+    // .noticed {
+    //   background: #cc0000;
+    // }
   }
 }

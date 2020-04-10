@@ -1,13 +1,13 @@
 <template>
   <div id="gameFieldWrapper" ref="fieldLayout" :style="cssVariables">
     <div id="field" ref="gameField">
-      <div class="space"></div>
-      <div class="hNumbers">
+      <!-- <div class="hNumbers">
         <div
           v-for="column in fieldWidth"
           :key="column"
           :class="{'delimiter': !(column % 5 ||  column === fieldWidth), 'hovered': column === activeColumn}"
         >
+          <img :style="widthPicStyle(column)" src="http://pic.deaso40.com/ljhy/5立春/竖格子未完成 空.png" />
           <span
             v-for="(val, index) in gameData['columns'][column-1]"
             :key="'cel-' + column + '-' + index"
@@ -24,6 +24,7 @@
           :key="row"
           :class="{'delimiter': !(row % 5 ||  row === fieldHeight), 'hovered': row === activeRow}"
         >
+          <img :style="heightPicStyle(row)" src="http://pic.deaso40.com/ljhy/5立春/横格子未完成 空.png" />
           <span
             v-for="(val, index) in gameData['rows'][row-1]"
             :key="'row-'+row+'-'+index"
@@ -32,26 +33,49 @@
             {{ val }}
           </span>
         </div>
-      </div>
-
+      </div> -->
+      
       <div class="game" @mouseleave="isMouseDragging = false" @mouseup="isMouseDragging = false">
         <template v-for="y in fieldHeight">
           <div
             :key="y"
-            :class="{'delimiter': !(y % 5 ||  y === fieldHeight), 'hovered': y === activeRow}"
+            :class="{'hovered': (y === activeRow)}"
           >
             <template v-for="x in fieldWidth">
               <span
                 :class="cellsClasses[x + '-' + y]"
                 :key="x"
                 @mousedown.prevent="onCellClick(x, y)"
-                @contextmenu.prevent="toggleCancelled(x, y)"
-                @mouseover="onCellHover(x, y)"
                 class="cell"
               ></span>
             </template>
           </div>
         </template>
+      </div>
+      <img class="game_smallback" src="http://pic.deaso40.com/ljhy/5立春/关卡-布5x5.png" />
+      <div class="selectedcell">
+        <div v-for="y in fieldHeight">
+          <div v-for="x in fieldWidth">
+            <transition name="fade">
+              <img v-show="selectedShow(x, y)" :style='selectedSmallStyle(x, y)' src="http://pic.deaso40.com/ljhy/5立春/关卡-针线5x5.png">
+            </transition>
+            <transition name="fade">
+              <img v-show="selectedShow(x, y)" :style='selectedStyle(x, y)' src="http://pic.deaso40.com/ljhy/5立春/关卡-针线5x5.png">
+            </transition>
+          </div>
+        </div>
+      </div>
+      <div v-for="column in fieldWidth">
+        <img :style="widthPicStyle(column)" src="http://pic.deaso40.com/ljhy/5立春/竖格子未完成 空.png" />
+        <div v-for="(val, index) in gameData['columns'][column-1]" :style="widthTextStyle(column, index)">
+          {{val}}
+        </div>
+      </div>
+      <div v-for="row in fieldHeight">
+        <img :style="heightPicStyle(row)" src="http://pic.deaso40.com/ljhy/5立春/横格子未完成 空.png" />
+        <div v-for="(val, index) in gameData['rows'][row-1]" :style="heightTextStyle(row, index)">
+          {{val}}
+        </div>
       </div>
     </div>
   </div>
@@ -93,7 +117,7 @@ export default {
       activeColumn: null,
       rowFilledChunks: [],
       colFilledChunks: [],
-      cellSize: 20,
+      cellSize: 40,
       cellsClasses: [],
       variables
     };
@@ -169,16 +193,82 @@ export default {
   },
 
   mounted() {
+    this.adjustFieldToScreen();
     this.$nextTick(() => {
-      window.addEventListener('resize', this.adjustFieldToScreen);
+      window.addEventListener('resize', this.nextAdjustFieldToScreen);
     });
   },
 
   destroyed() {
-    window.removeEventListener('resize', this.adjustFieldToScreen);
+    window.removeEventListener('resize', this.nextAdjustFieldToScreen);
   },
 
   methods: {
+    selectedStyle(x, y){
+      return {
+        position: 'absolute',
+        width: (this.cellSize * 1.4) + 'px',
+        height: (this.cellSize * 1.4) + 'px',
+        left: (this.cellSize * (x - 1.2)) + 'px',
+        top: (this.cellSize * (y - 1.2)) + 'px'
+      }
+    },
+    selectedSmallStyle(x, y){
+      const smallWidth = 64 / this.fieldWidth;
+      const smallHeight = 64 / this.fieldHeight;
+      return {
+        position: 'absolute',
+        width: (smallWidth * 1.4) + 'px',
+        height: (smallHeight * 1.4) + 'px',
+        left: (smallWidth * (x - 1.2)) - 68 + 'px',
+        top: (smallHeight * (y - 1.2)) - 69 + 'px'
+      }
+    },
+    selectedShow(x, y){
+      return this.cellState(x, y) === variables.CELL_FILLED;
+    },
+    widthPicStyle(x){
+      return {
+        position: 'fixed',
+        left: (88 + ((x - 1) * this.cellSize)) + 'px',
+        top: '106px',
+        height: '70px',
+        width: (this.cellSize - 2) + 'px',
+      }
+    },
+    heightPicStyle(y){
+      return{
+        position: 'fixed',
+        left: '15px',
+        top: (179 + ((y - 1) * this.cellSize)) + 'px',
+        width: '70px',
+        height: (this.cellSize - 2) + 'px',
+      }
+    },
+    widthTextStyle(x ,y){
+      return {
+        position: 'fixed',
+        left: (88 + ((x - 1) * this.cellSize)) + 'px',
+        top: (98 + ((4 - y) * 15)) + 'px',
+        height: '15px',
+        width: (this.cellSize - 2) + 'px',
+        'text-align': 'center',
+        'font-size': '12px',
+        color: '#ffffff',
+      }
+    },
+    heightTextStyle(y, x){
+      return{
+        position: 'fixed',
+        left: (8 + ((4 - x) * 15)) + 'px',
+        top: (172 + ((y - 0.5) * this.cellSize)) + 'px',
+        width: '15px',
+        height: '16px',
+        'vertical-align': 'middle',
+        'font-size': '12px',
+        color: '#ffffff',
+      }
+    },
     /**
      * Cleans game's field.
      * Removes all cell's states, filled chunks and adds delimiters.
@@ -208,9 +298,14 @@ export default {
     /**
      * Adjusts the game fields' size depending on the screen size.
      */
+    nextAdjustFieldToScreen() {
+      this.$nextTick(() => {
+        this.adjustFieldToScreen;
+      })
+    },
     adjustFieldToScreen() {
       // We must wait until keyboard will be added to or removed from layout.
-      this.$nextTick(() => {
+      // this.$nextTick(() => {
         let
           layoutWidth = this.$refs.fieldLayout.clientWidth,
           layoutHeight = this.$refs.fieldLayout.clientHeight;
@@ -241,9 +336,10 @@ export default {
           heightRatio = layoutHeight / gameFieldHeight,
 
           ratio = Math.min(widthRatio, heightRatio);
-
-        this.cellSize = Math.floor(this.cellSize * ratio);
-      });
+        if(gameFullWidth < 340) this.cellSize = Math.floor((gameFullWidth - 100) / this.fieldWidth);
+        else this.cellSize = Math.floor(240 / this.fieldWidth);
+        // this.cellSize = Math.floor(this.cellSize * ratio);
+      // });
     },
 
     /**
@@ -369,33 +465,33 @@ export default {
         column = this.gameData['columns'][x - 1],
         columnFilled = this.getFilledSubsequences(this.filledCells[x] || []),
         rowFilled = this.getFilledSubsequences(this.filledCells.map(cell => cell[y] || variables.CELL_EMPTY));
-
+      
       this.$set(this.rowFilledChunks, y - 1, this.checkFilledSubsequences(row, rowFilled));
       this.$set(this.colFilledChunks, x - 1, this.checkFilledSubsequences(column, columnFilled));
 
-      if (fillCellsOnDone) {
-        // Row is done!
-        if (this.checkFilledSubsequences(row, rowFilled).every(n => n)) {
-          for (let i = 1; i <= this.fieldWidth; ++i) {
-            if (!this.filledCells[i] || this.filledCells[i][y] !== variables.CELL_FILLED) {
-              this.setCellState(variables.CELL_CANCELLED, i, y);
-            }
-          }
-        }
+      // if (fillCellsOnDone) {
+      //   // Row is done!
+      //   if (this.checkFilledSubsequences(row, rowFilled).every(n => n)) {
+      //     for (let i = 1; i <= this.fieldWidth; ++i) {
+      //       if (!this.filledCells[i] || this.filledCells[i][y] !== variables.CELL_FILLED) {
+      //         this.setCellState(variables.CELL_FILLED, i, y);
+      //       }
+      //     }
+      //   }
 
-        // Column is done!
-        if (this.checkFilledSubsequences(column, columnFilled).every(n => n)) {
-          let cells = this.filledCells[x];
-          for (let i = 1; i <= this.fieldHeight; ++i) {
-            if (cells[i] !== variables.CELL_FILLED) {
-              cells[i] = variables.CELL_CANCELLED;
-              this.setCellState(variables.CELL_CANCELLED, x, i);
-            }
-          }
+      //   // Column is done!
+      //   if (this.checkFilledSubsequences(column, columnFilled).every(n => n)) {
+      //     let cells = this.filledCells[x];
+      //     for (let i = 1; i <= this.fieldHeight; ++i) {
+      //       if (cells[i] !== variables.CELL_FILLED) {
+      //         cells[i] = variables.CELL_CELL_FILLED;
+      //         this.setCellState(variables.CELL_CELL_FILLED, x, i);
+      //       }
+      //     }
 
-          this.$set(this.filledCells, x, cells);
-        }
-      }
+      //     this.$set(this.filledCells, x, cells);
+      //   }
+      // }
     },
 
     /**
@@ -439,9 +535,8 @@ export default {
 
       if (currentState === variables.CELL_EMPTY) {
         newState = variables.CELL_FILLED;
-      }
-      else if (currentState === variables.CELL_FILLED) {
-        newState = variables.CELL_CANCELLED;
+      }else{
+        newState = variables.CELL_EMPTY;
       }
 
       this.setCellState(newState, x, y);
@@ -534,7 +629,30 @@ export default {
       }
 
       return 'empty';
-    }
+    },
   }
 }
 </script>
+<style lang="scss" scoped>
+.selectedcell{
+  position: relative;
+  margin-left: 87px;
+  margin-top: 178px;
+  display: unset;
+  pointer-events: none;
+  z-index: 200;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .1s ease
+}
+.game_smallback{
+  position: absolute;
+  width: 90px;
+  height: auto;
+  top: 96px;
+  left: 6px;
+}
+</style>
