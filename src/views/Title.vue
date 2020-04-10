@@ -57,7 +57,7 @@ export default {
   },
   methods:{
     start(){
-      this.$router.push('/en/game/1');
+      this.$router.push('/stages');
     }
   }
 }

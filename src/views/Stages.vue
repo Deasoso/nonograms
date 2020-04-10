@@ -19,7 +19,8 @@
     </transition>
     <transition name="flyin1">
       <div v-show="modalshowed" class="modal-window">
-        图标呢？？
+        <img class="modal-text" src="http://pic.deaso40.com/ljhy/5立春/关卡提示复制.png" />
+        <img class="modal-start" @click="enter(index)" src="http://pic.deaso40.com/ljhy/5立春/开始游戏.png" />
       </div>
     </transition>
   </div>
@@ -69,6 +70,9 @@ export default {
       style.push({left: item.x + 'px'});
       style.push({top: item.y + 'px'});
       return style;
+    },
+    enter(index){
+      this.$router.push('/en/game/1');
     }
   }
 }
@@ -119,12 +123,12 @@ export default {
 .modal{
   &-window{
     position: fixed;
-    margin-top: 220px;
-    left: 60px;
-    right: 60px;
-    height: 132px;
+    margin-top: 210px;
+    left: 48px;
+    right: 48px;
+    height: 148px;
     border-radius: 10px;
-    background-color: #ffffff;
+    // background-color: #ffffff;
   }
   &-back{
     position: fixed;
@@ -132,7 +136,18 @@ export default {
     right: 0px;
     top: 0px;
     bottom: 0px;
-    background-color: #ffffff49
+    background-color: #ffffff49;
+  }
+  &-text{
+    // position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  &-start{
+    position: absolute;
+    top: 86px;
+    width: 180px;
+    right: 20px;
   }
 }
 </style>
