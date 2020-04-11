@@ -52,7 +52,9 @@
           </div>
         </template>
       </div>
-      <img class="game_smallback" src="http://pic.deaso40.com/ljhy/5立春/关卡-布5x5.png" />
+      <!-- 以上一段opacity为0，仅仅用于计算点击 -->
+      <img :style="backStyle()" src="http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png" />
+      <img class="game_smallback" src="http://pic.deaso40.com/ljhy/关卡背景补充/预览窗口.png" />
       <div class="selectedcell">
         <div v-for="y in fieldHeight">
           <div v-for="x in fieldWidth">
@@ -66,13 +68,13 @@
         </div>
       </div>
       <div v-for="column in fieldWidth">
-        <img :style="widthPicStyle(column)" src="http://pic.deaso40.com/ljhy/5立春/竖格子未完成 空.png" />
+        <img :style="widthPicStyle(column)" :src="getWidthPic(column)" />
         <div v-for="(val, index) in gameData['columns'][column-1]" :style="widthTextStyle(column, index)">
           {{val}}
         </div>
       </div>
       <div v-for="row in fieldHeight">
-        <img :style="heightPicStyle(row)" src="http://pic.deaso40.com/ljhy/5立春/横格子未完成 空.png" />
+        <img :style="heightPicStyle(row)" :src="getHeightPic(row)" />
         <div v-for="(val, index) in gameData['rows'][row-1]" :style="heightTextStyle(row, index)">
           {{val}}
         </div>
@@ -204,24 +206,39 @@ export default {
   },
 
   methods: {
+    getWidthPic(x){
+      if(this.colFilledChunks[x - 1] && this.colFilledChunks[x - 1].every(chunk => chunk === true)){
+        return "http://pic.deaso40.com/ljhy/横格竖格合集/竖格子（已完成）-5x5.png"
+      }else{
+        return "http://pic.deaso40.com/ljhy/横格竖格合集/竖格子（未完成）-5x5.png"
+      }
+    },
+    getHeightPic(y){
+      if(this.rowFilledChunks[y - 1] && this.rowFilledChunks[y - 1].every(row => row === true)){
+        return "http://pic.deaso40.com/ljhy/横格竖格合集/横格子（已完成）-5x5.png"
+      }else{
+        return "http://pic.deaso40.com/ljhy/横格竖格合集/横格子（未完成）-5x5.png"
+      }
+    },
     selectedStyle(x, y){
+      const bigbili = 1.35;
       return {
         position: 'absolute',
-        width: (this.cellSize * 1.4) + 'px',
-        height: (this.cellSize * 1.4) + 'px',
-        left: (this.cellSize * (x - 1.2)) + 'px',
-        top: (this.cellSize * (y - 1.2)) + 'px'
+        width: (this.cellSize * bigbili) + 'px',
+        height: (this.cellSize * bigbili) + 'px',
+        left: (this.cellSize * (x - (bigbili / 2) - 0.5)) + 'px',
+        top: (this.cellSize * (y - (bigbili / 2) - 0.5)) + 'px'
       }
     },
     selectedSmallStyle(x, y){
-      const smallWidth = 64 / this.fieldWidth;
-      const smallHeight = 64 / this.fieldHeight;
+      const smallWidth = 56 / this.fieldWidth;
+      const smallHeight = 56 / this.fieldHeight;
       return {
         position: 'absolute',
         width: (smallWidth * 1.4) + 'px',
         height: (smallHeight * 1.4) + 'px',
-        left: (smallWidth * (x - 1.2)) - 68 + 'px',
-        top: (smallHeight * (y - 1.2)) - 69 + 'px'
+        left: (smallWidth * (x - 1.2)) - 64 + 'px',
+        top: (smallHeight * (y - 1.2)) - 65 + 'px'
       }
     },
     selectedShow(x, y){
@@ -232,11 +249,11 @@ export default {
         position: 'fixed',
         left: (88 + ((x - 1) * this.cellSize)) + 'px',
         top: '106px',
-        height: '70px',
         width: (this.cellSize - 2) + 'px',
+        height: '70px',
       }
     },
-    heightPicStyle(y){
+    heightPicStyle(y){ 
       return{
         position: 'fixed',
         left: '15px',
@@ -246,6 +263,7 @@ export default {
       }
     },
     widthTextStyle(x ,y){
+      const color = (this.colFilledChunks[x - 1] && this.colFilledChunks[x - 1][y]) ? '#8C9ECE' : '#ffffff';
       return {
         position: 'fixed',
         left: (88 + ((x - 1) * this.cellSize)) + 'px',
@@ -254,10 +272,11 @@ export default {
         width: (this.cellSize - 2) + 'px',
         'text-align': 'center',
         'font-size': '12px',
-        color: '#ffffff',
+        'color': color,
       }
     },
     heightTextStyle(y, x){
+      const color = (this.rowFilledChunks[y - 1] && this.rowFilledChunks[y - 1][x]) ? '#8C9ECE' : '#ffffff';
       return{
         position: 'fixed',
         left: (8 + ((4 - x) * 15)) + 'px',
@@ -266,7 +285,17 @@ export default {
         height: '16px',
         'vertical-align': 'middle',
         'font-size': '12px',
-        color: '#ffffff',
+        color: color,
+      }
+    },
+    backStyle(){
+      return{
+        position: 'absolute',
+        width: ((this.cellSize * this.fieldWidth) + 4) + 'px',
+        height: 'auto',
+        top: '176px',
+        left: '85px',
+        'z-index': '50'
       }
     },
     /**
@@ -650,9 +679,9 @@ export default {
 }
 .game_smallback{
   position: absolute;
-  width: 90px;
+  width: 62px;
   height: auto;
-  top: 96px;
-  left: 6px;
+  top: 110px;
+  left: 20px;
 }
 </style>

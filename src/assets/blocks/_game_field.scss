@@ -103,6 +103,8 @@
     left: 85px;
     top: 176px;
     background-color: #252c46;
+    z-index: 75;
+    opacity: 0;
 
     div {
       overflow: hidden;

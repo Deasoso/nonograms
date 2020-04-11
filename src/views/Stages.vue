@@ -10,7 +10,7 @@
     <img class="back" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
     <img class="star" src="http://pic.deaso40.com/ljhy/4地图/星星.png" />
     <div class="star-num">0</div>
-    <div v-for="item, index in stageList" :key="index">
+    <div v-for="item, index in stageList">
       <img :style="getitemstyle(index)" @click="showmodal(index)" :src="item.src" />
     </div>
     <transition name="fade">
@@ -147,7 +147,7 @@ export default {
     position: absolute;
     top: 86px;
     width: 180px;
-    right: 20px;
+    left: calc(50vw - 90px - 48px);
   }
 }
 </style>
