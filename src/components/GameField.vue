@@ -53,7 +53,7 @@
         </template>
       </div>
       <!-- 以上一段opacity为0，仅仅用于计算点击 -->
-      <img :style="backStyle()" src="http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png" />
+      <img :style="backStyle()" :src="gameData.game_back" />
       <img class="game_smallback" src="http://pic.deaso40.com/ljhy/关卡背景补充/预览窗口.png" />
       <div class="selectedcell">
         <div v-for="y in fieldHeight">
@@ -267,7 +267,7 @@ export default {
       return {
         position: 'fixed',
         left: (88 + ((x - 1) * this.cellSize)) + 'px',
-        top: (98 + ((4 - y) * 15)) + 'px',
+        top: (98 + ((5 - this.gameData['columns'][x-1].length + y) * 15)) + 'px',
         height: '15px',
         width: (this.cellSize - 2) + 'px',
         'text-align': 'center',
@@ -279,7 +279,7 @@ export default {
       const color = (this.rowFilledChunks[y - 1] && this.rowFilledChunks[y - 1][x]) ? '#8C9ECE' : '#ffffff';
       return{
         position: 'fixed',
-        left: (8 + ((4 - x) * 15)) + 'px',
+        left: (8 + ((5 - this.gameData['rows'][y-1].length + x) * 15)) + 'px',
         top: (172 + ((y - 0.5) * this.cellSize)) + 'px',
         width: '15px',
         height: '16px',

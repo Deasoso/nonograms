@@ -35,22 +35,22 @@ export default new Router({
       component: Stages
     },
     {
-      path: '/finish',
+      path: '/finish/:id',
       name: 'finish',
       component: Finish
     },
     {
-      path: '/:lang/about',
+      path: '/about',
       name: 'about',
       component: () => import('./views/About.vue')
     },
     {
-      path: '/:lang/game/:id',
+      path: '/game/:id',
       name: 'game',
       component: () => import('./views/Game.vue')
     },
     {
-      path: '/:lang/home',
+      path: '/home',
       name: 'home',
       component: Home
     },

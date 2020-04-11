@@ -28,8 +28,10 @@
       />
     </div>
     <img class="game_goback" @click="goStage" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
-    <img class="game_title" src="http://pic.deaso40.com/ljhy/5立春/关卡-标题.png" />
-    <img class="game_cell" src="http://pic.deaso40.com/ljhy/5立春/关卡-规格.png" />
+    <div v-if="gameData">
+      <img class="game_title" :src="gameData.game_title" />
+      <img class="game_cells" :src="gameData.game_cells" />
+    </div>
     <img class="game_time" src="http://pic.deaso40.com/ljhy/5立春/关卡-时间.png" />
     <img class="game_girl" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
     <img class="game_item" src="http://pic.deaso40.com/ljhy/5立春/关卡-锦囊.png" />
@@ -88,7 +90,7 @@ export default {
       this.$router.push('/stages');
     },
     goFinish(){
-      this.$router.push('/finish');
+      this.$router.push('/finish/' + this.gameId);
     },
     moveActiveCell: function(direction) {
       this.$refs.gameField.moveActiveCell(direction);
@@ -151,7 +153,7 @@ export default {
   left: calc(50vw - 60px);
   top: 16px;
 }
-.game_cell{
+.game_cells{
   position: absolute;
   width: 60px;
   height: auto;

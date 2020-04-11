@@ -28,7 +28,7 @@ export default new Vuex.Store({
     },
     [MutationTypes.SET_GAME_STATE]: function (state, payload) {
       if (typeof payload !== 'object') throw new Error(`${MutationTypes.SET_GAME_STATE}: payload is not Object`);
-      if (!payload.id) throw new Error(`${MutationTypes.SET_GAME_STATE}: game id is not defined`);
+      if (!payload.id && payload.id != 0) throw new Error(`${MutationTypes.SET_GAME_STATE}: game id is not defined`);
       if (!payload.state && payload.state !== 0) throw new Error(`${MutationTypes.SET_GAME_STATE}: game state is not defined`);
 
       // Nothing to change

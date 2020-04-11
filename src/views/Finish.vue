@@ -9,24 +9,33 @@
       <img :style="starStyle(index)" src="http://pic.deaso40.com/ljhy/3基础教程/2/星星-大.png" />
     </div>
     <img class="finish_board" src="http://pic.deaso40.com/ljhy/5立春/关卡-布底.png" />
-    <img class="finish_title" src="http://pic.deaso40.com/ljhy/完成关卡后标题/立春.png" />
-    <img class="finish_pic" src="http://pic.deaso40.com/ljhy/立春-补充/关卡-立春完成图案.png" />
+    <div v-if="gameData">
+      <img class="finish_title" :src="gameData.finish_title" />
+      <img class="finish_pic" :src="gameData.finish_pic" />
+    </div>
     <img class="finish_girl" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
     <img class="finish_dialog" src="http://pic.deaso40.com/ljhy/5立春/关卡-对话6.png" />
     <img class="finish_next" @click="goStage" src="http://pic.deaso40.com/ljhy/3基础教程/2/下一步.png" />
   </div>
 </template>
 <script>
+import {mapState} from 'vuex';
+
 export default {
   data: function () {
     return {
       showDonePopup: true,
       successStar: 3,
-      starList: [0,0,0]
+      starList: [0,0,0],
+      gameId: 0
     };
   },
   mounted(){
     this.showDonePopup = false;
+    this.gameId = this.$route.params.id;
+  },
+  computed: {
+    ...mapState(['gameData']),
   },
   methods: {
     goStage(){
@@ -93,10 +102,12 @@ export default {
 }
 .finish_pic{
   position: absolute;
-  width: 288px;
-  height: auto;
-  top: 168px;
-  left: calc(50vw - 144px);
+  width: auto;
+  height: 160px;
+  top: 184px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 .finish_girl{
   position: absolute;

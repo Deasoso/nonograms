@@ -1,586 +1,183 @@
 [
   {
+    "id": 0,
+    "name": "立春",
+    "columns": [[1,1,1],[2,1],[5],[3],[5]],
+    "rows": [[1,1,1],[2,1],[5],[3],[5]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/5立春/关卡提示复制.png",
+    "game_title": "http://pic.deaso40.com/ljhy/5立春/关卡-标题.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/立春.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/立春-补充/关卡-立春完成图案.png"
+  },
+  {
     "id": 1,
-    "name": "You are number one!",
-    "rows": [
-      [
-        2
-      ],
-      [
-        3
-      ],
-      [
-        2
-      ],
-      [
-        2
-      ],
-      [
-        5
-      ]
-    ],
-    "columns": [
-      [
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        5
-      ],
-      [
-        5
-      ],
-      [
-        1
-      ]
-    ]
+    "name": "雨水",
+    "columns": [[2],[3],[4],[3],[4]],
+    "rows": [[1],[3],[4],[5],[3]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/6雨水/关卡提示.png",   
+    "game_title": "http://pic.deaso40.com/ljhy/6雨水/关卡-标题复制.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/雨水.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/6雨水/谜底-雨水.png"
   },
   {
     "id": 2,
-    "name": "I love JS!",
-    "rows": [
-      [
-        20
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        2,
-        4,
-        1
-      ],
-      [
-        1,
-        2,
-        6,
-        1
-      ],
-      [
-        1,
-        2,
-        2,
-        2,
-        1
-      ],
-      [
-        1,
-        2,
-        3,
-        1
-      ],
-      [
-        1,
-        2,
-        4,
-        1
-      ],
-      [
-        1,
-        2,
-        3,
-        1
-      ],
-      [
-        1,
-        2,
-        3,
-        1
-      ],
-      [
-        1,
-        2,
-        2,
-        2,
-        3,
-        1
-      ],
-      [
-        1,
-        6,
-        6,
-        1
-      ],
-      [
-        1,
-        4,
-        4,
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        20
-      ]
-    ],
-    "columns": [
-      [
-        20
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        2,
-        1
-      ],
-      [
-        1,
-        3,
-        1
-      ],
-      [
-        1,
-        2,
-        1
-      ],
-      [
-        1,
-        2,
-        1
-      ],
-      [
-        1,
-        10,
-        1
-      ],
-      [
-        1,
-        9,
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        3,
-        2,
-        1
-      ],
-      [
-        1,
-        5,
-        3,
-        1
-      ],
-      [
-        1,
-        2,
-        2,
-        2,
-        1
-      ],
-      [
-        1,
-        2,
-        2,
-        2,
-        1
-      ],
-      [
-        1,
-        3,
-        6,
-        1
-      ],
-      [
-        1,
-        2,
-        4,
-        1
-      ],
-      [
-        1,
-        2,
-        1
-      ],
-      [
-        1,
-        1
-      ],
-      [
-        20
-      ]
-    ]
+    "name": "惊蛰",
+    "columns": [[2],[3],[4],[4],[3]],
+    "rows": [[2],[3],[4],[4],[3]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/7惊蛰/关卡提示复制 2.png",
+    "game_title": "http://pic.deaso40.com/ljhy/7惊蛰/关卡-标题复制 2.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/惊蛰.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/7惊蛰/谜底-惊蛰.png"
   },
   {
     "id": 3,
-    "name": "Grumpy cat",
-    "rows": [
-      [
-        3,
-        13,
-        10
-      ],
-      [
-        3,
-        1,
-        11,
-        2,
-        9
-      ],
-      [
-        3,
-        2,
-        9,
-        3,
-        9
-      ],
-      [
-        3,
-        3,
-        6,
-        4,
-        9
-      ],
-      [
-        3,
-        5,
-        5,
-        9
-      ],
-      [
-        3,
-        16,
-        9
-      ],
-      [
-        3,
-        16,
-        9
-      ],
-      [
-        3,
-        16,
-        9
-      ],
-      [
-        2,
-        17,
-        9
-      ],
-      [
-        2,
-        17,
-        9
-      ],
-      [
-        2,
-        17,
-        9
-      ],
-      [
-        2,
-        18,
-        8
-      ],
-      [
-        1,
-        19,
-        8
-      ],
-      [
-        1,
-        3,
-        3,
-        8
-      ],
-      [
-        1,
-        2,
-        7,
-        6,
-        8
-      ],
-      [
-        1,
-        6,
-        12,
-        8
-      ],
-      [
-        5,
-        10,
-        8
-      ],
-      [
-        2,
-        4,
-        2,
-        9,
-        2,
-        1
-      ],
-      [
-        1,
-        16,
-        3,
-        4
-      ],
-      [
-        4,
-        12,
-        1,
-        5
-      ],
-      [
-        6,
-        10,
-        3,
-        3,
-        1
-      ],
-      [
-        8,
-        11,
-        1,
-        3,
-        3
-      ],
-      [
-        8,
-        11,
-        3,
-        4
-      ],
-      [
-        8,
-        2,
-        3,
-        5,
-        3,
-        4
-      ],
-      [
-        8,
-        2,
-        3,
-        5,
-        2,
-        5
-      ],
-      [
-        7,
-        2,
-        4,
-        3,
-        2,
-        5
-      ],
-      [
-        7,
-        2,
-        3,
-        6,
-        1,
-        6
-      ],
-      [
-        7,
-        7
-      ]
-    ],
-    "columns": [
-      [
-        16,
-        11
-      ],
-      [
-        12,
-        1,
-        9
-      ],
-      [
-        8,
-        1,
-        3,
-        9
-      ],
-      [
-        5,
-        4,
-        9
-      ],
-      [
-        12,
-        4,
-        8
-      ],
-      [
-        1,
-        11,
-        4,
-        8
-      ],
-      [
-        2,
-        10,
-        6,
-        7
-      ],
-      [
-        3,
-        12,
-        2,
-        4
-      ],
-      [
-        3,
-        11,
-        3,
-        2
-      ],
-      [
-        4,
-        11,
-        10
-      ],
-      [
-        4,
-        8,
-        2,
-        7
-      ],
-      [
-        4,
-        8,
-        9,
-        2
-      ],
-      [
-        4,
-        8,
-        13
-      ],
-      [
-        4,
-        8,
-        12
-      ],
-      [
-        4,
-        8,
-        11
-      ],
-      [
-        3,
-        9,
-        9,
-        1
-      ],
-      [
-        2,
-        10,
-        11,
-        1
-      ],
-      [
-        1,
-        11,
-        11,
-        1
-      ],
-      [
-        18,
-        7
-      ],
-      [
-        18,
-        6
-      ],
-      [
-        1,
-        6,
-        1,
-        4
-      ],
-      [
-        11,
-        1,
-        2
-      ],
-      [
-        17,
-        3,
-        5
-      ],
-      [
-        19,
-        5,
-        1
-      ],
-      [
-        18,
-        5,
-        2
-      ],
-      [
-        17,
-        4,
-        4
-      ],
-      [
-        17,
-        3,
-        6
-      ],
-      [
-        17,
-        2,
-        7
-      ],
-      [
-        17,
-        2,
-        7
-      ],
-      [
-        18,
-        8
-      ]
-    ]
+    "name": "春分",
+    "columns": [[4],[4],[5],[3],[2]],
+    "rows": [[3],[3],[4],[5],[3]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/8春分/关卡提示复制 3.png",
+    "game_title": "http://pic.deaso40.com/ljhy/8春分/关卡-标题复制 3.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/春分.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-惊蛰复制.png"
+  },
+  {
+    "id": 4,
+    "name": "清明",
+    "columns": [[4],[1,3],[1,2],[2,1],[3],[4]],
+    "rows": [[4],[1,3],[1,2],[2,1],[3],[4]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/9清明/2清明/关卡提示复制 4.png",
+    "game_title": "http://pic.deaso40.com/ljhy/9清明/关卡-标题复制 4.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/9清明/2清明/关卡-规格.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格6x6.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/清明.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/9清明/2清明/谜底-清明.png"
+  },
+  {
+    "id": 5,
+    "name": "谷雨",
+    "columns": [[1,1],[1,1],[2,1,1],[6],[2,1,1],[1,1],[1,1]],
+    "rows": [[1,1],[1,3,1],[1,1,1],[3],[1,1,1],[1,1,1],[3]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/10谷雨/关卡提示复制 5.png",
+    "game_title": "http://pic.deaso40.com/ljhy/10谷雨/关卡-标题复制 5.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/10谷雨/关卡-规格复制.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格7x7.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/谷雨.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/10谷雨/谜底-谷雨复制.png"
+  },
+  {
+    "id": 6,
+    "name": "立夏",
+    "columns": [[3],[2,3],[3,2],[2,3,1],[3,2,1],[3,2],[2,2,2,1],[3,2],[4,1,2],[3,1]],
+    "rows": [[3],[2,3],[3,2],[2,3,1],[3,2,1],[3,2],[2,2,2,1],[3,2],[4,1,2],[3,1]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/11立夏/关卡提示复制 6.png",
+    "game_title": "http://pic.deaso40.com/ljhy/11立夏/关卡-标题复制 6.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/11立夏/关卡-规格复制 2.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格10x10.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/立夏.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-立夏复制.png"
+  },
+  {
+    "id": 7,
+    "name": "小满",
+    "columns": [[5],[7],[3,3],[3,1,3],[4,3],[3,1,3],[3,3],[7],[5]],
+    "rows": [[5],[7],[9],[2,1,2],[2,1,1,2],[2,2],[9],[7],[5]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/12小满/关卡提示复制 7.png",
+    "game_title": "http://pic.deaso40.com/ljhy/12小满/关卡-标题复制 7.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/12小满/关卡-规格复制 3.png",
+    "game_back": "http://pic.deaso40.com/ljhy/12小满/方格9x9.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/小满.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-小满.png"
+  },
+  {
+    "id": 8,
+    "name": "芒种",
+    "columns": [[8],[10],[10],[2,2],[2,1],[2,2],[10],[10],[9,1],[6]],
+    "rows": [[3,4],[1],[3,1,4],[3,4],[3,4],[3,4],[3,4],[3,3],[4,3],[8]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/13芒种/关卡提示复制 8.png",
+    "game_title": "http://pic.deaso40.com/ljhy/13芒种/关卡-标题复制 8.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/11立夏/关卡-规格复制 2.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格10x10.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/芒种.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/13芒种/谜底-芒种.png"
+  },
+  {
+    "id": 9,
+    "name": "夏至",
+    "columns": [[2],[4],[1,4,1],[3,2,3],[4,4],[4,4],[3,2,3],[1,4,1],[4],[2]],
+    "rows": [[4],[6],[4],[2,2,2],[4,4],[4,4],[2,2,2],[4],[6],[4]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/14夏至/关卡提示复制 9.png",
+    "game_title": "http://pic.deaso40.com/ljhy/14夏至/关卡-标题复制 9.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/11立夏/关卡-规格复制 2.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格10x10.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/夏至.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-夏至最终形态.png"
+  },
+  {
+    "id": 10,
+    "name": "小暑",
+    "columns": [[2],[4],[2,2],[2,2,2],[2,4,2],[2,4,2],[2,2,2],[2,2],[4],[2]],
+    "rows": [[2],[4],[2,2],[2,2,2],[2,4,2],[2,4,2],[2,2,2],[2,2],[4],[2]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/15小暑/关卡提示复制 10.png",
+    "game_title": "http://pic.deaso40.com/ljhy/15小暑/关卡-标题复制 10.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/11立夏/关卡-规格复制 2.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格10x10.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/小暑.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-小暑.png"
+  },
+  {
+    "id": 11,
+    "name": "大暑",
+    "columns": [[4],[4],[5],[3],[2]],
+    "rows": [[3],[3],[4],[5],[3]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/8春分/关卡提示复制 3.png",
+    "game_title": "http://pic.deaso40.com/ljhy/8春分/关卡-标题复制 3.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/春分.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-惊蛰复制.png"
+  },
+  {
+    "id": 12,
+    "name": "立秋",
+    "columns": [[4],[4],[5],[3],[2]],
+    "rows": [[3],[3],[4],[5],[3]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/8春分/关卡提示复制 3.png",
+    "game_title": "http://pic.deaso40.com/ljhy/8春分/关卡-标题复制 3.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/春分.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-惊蛰复制.png"
+  },
+  {
+    "id": 13,
+    "name": "处暑",
+    "columns": [[4],[4],[5],[3],[2]],
+    "rows": [[3],[3],[4],[5],[3]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/8春分/关卡提示复制 3.png",
+    "game_title": "http://pic.deaso40.com/ljhy/8春分/关卡-标题复制 3.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/春分.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-惊蛰复制.png"
+  },
+  {
+    "id": 14,
+    "name": "白露",
+    "columns": [[4],[4],[5],[3],[2]],
+    "rows": [[3],[3],[4],[5],[3]],
+    "stages_modal_title": "http://pic.deaso40.com/ljhy/8春分/关卡提示复制 3.png",
+    "game_title": "http://pic.deaso40.com/ljhy/8春分/关卡-标题复制 3.png",
+    "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
+    "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
+    "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/春分.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-惊蛰复制.png"
   }
+  
 ]

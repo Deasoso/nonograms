@@ -14,50 +14,82 @@
       <img :style="getitemstyle(index)" @click="showmodal(index)" :src="item.src" />
     </div>
     <transition name="fade">
-      <div v-show="modalshowed" @click="showmodal" class="modal-back">
+      <div v-show="modalshowed" @click="modalshowed = false" class="modal-back">
       </div>
     </transition>
     <transition name="flyin1">
       <div v-show="modalshowed" class="modal-window">
-        <img class="modal-text" src="http://pic.deaso40.com/ljhy/5立春/关卡提示复制.png" />
-        <img class="modal-start" @click="enter(index)" src="http://pic.deaso40.com/ljhy/5立春/开始游戏.png" />
+        <img class="modal-text" :src="gamesList[selectedStage].stages_modal_title" />
+        <img class="modal-start" @click="enter(selectedStage)" src="http://pic.deaso40.com/ljhy/5立春/开始游戏.png" />
       </div>
     </transition>
   </div>
 </template>
 <script>
+import {mapState} from 'vuex';
+import * as ActionsTypes from '../store/actions-types';
+import mapxys from '../stages/mapxys.json'
+
 export default {
   data: function () {
     return {
       stageList: [],
-      prestage: 0,
-      modalshowed: false
+      preStage: 0,
+      modalshowed: false,
+      selectedStage: 0
     }
   },
-  beforeMount(){
+  computed: {
+    ...mapState(['gamesList', 'gamesState'])
+  },
+  async beforeMount(){
+    await this.$store.dispatch(ActionsTypes.LOAD_GAMES);
+    await this.$store.dispatch(ActionsTypes.LOAD_GAMES_STATE);
+    this.getPreStage();
     this.addallstage();
   },
+  async mounted(){
+    
+  },
   methods:{
+    gameStateId: function(gameId) {
+      return this.gamesState[gameId.toString()];
+    },
     start(){
       
     },
+    getPreStage(){
+      this.preStage = 0;
+      for(var index in this.gamesState){
+        if(this.gamesState[index] === 2) this.preStage += 1;
+        else break;
+      }
+    },
     showmodal(index) {
+      this.selectedStage = index;
       this.modalshowed = !this.modalshowed;
     },
     addallstage(){
-      this.addstage({x: 36, y: 400, src: '1_立春-正在完成.png'})
-      this.addstage({x: 136, y: 384, src: '2_雨水-未完成.png'})
-      this.addstage({x: 236, y: 370, src: '3_惊蛰-未完成.png'})
-      this.addstage({x: this.stageList[this.prestage].x + 10, 
-        y: this.stageList[this.prestage].y - 24, 
-        src: '地图_正在完成定位.png',
-        width: 30});
+      var addxy = {};
+      for (var index in mapxys){
+        addxy = mapxys[index];
+        if(this.gamesState[index] === 2) addxy.src = mapxys[index].stages_finished_pic;
+        else if(this.gamesState[index] === 1) addxy.src = mapxys[index].stages_finishing_pic;
+        else addxy.src = mapxys[index].stages_not_finished_pic;
+        this.addstage(addxy);
+      }
+      if(this.preStage < this.stageList.length){
+        this.addstage({x: this.stageList[this.preStage].x + 10, 
+          y: this.stageList[this.preStage].y - 24, 
+          src: 'http://pic.deaso40.com/ljhy/4地图/24关按钮/地图_正在完成定位.png',
+          width: 30});
+      }
     },
     addstage(data){
       this.stageList.push({
         x: data.x,
         y: data.y,
-        src: 'http://pic.deaso40.com/ljhy/4地图/24关按钮/' + data.src,
+        src: data.src,
         width: data.width ? data.width : 50
       });
     },
@@ -72,7 +104,7 @@ export default {
       return style;
     },
     enter(index){
-      this.$router.push('/en/game/1');
+      this.$router.push('/game/' + index);
     }
   }
 }
