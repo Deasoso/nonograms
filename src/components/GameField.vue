@@ -640,7 +640,7 @@ export default {
   margin-top: 178px;
   display: unset;
   pointer-events: none;
-  z-index: 200;
+  z-index: 100;
 }
 .fade-enter, .fade-leave-to {
   opacity: 0

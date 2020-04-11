@@ -1,7 +1,7 @@
 <template>
   <div id="game" :class="{'hasKeyboard': gameMode === variables.GAME_MODE_KEYBOARD}">
     <img class="game_background" src="http://pic.deaso40.com/ljhy/关卡背景补充/背景.png" />
-    <div class="done" v-if="showDonePopup">
+    <!-- <div class="done" v-if="showDonePopup">
       <p>{{ $t('game.game_is_finished') }}</p>
       <div class="buttons">
         <button @click="showDonePopup = false">{{ $t('game.continue_game') }}</button>
@@ -12,7 +12,7 @@
       class="doneBackground"
       v-if="showDonePopup"
       @click="showDonePopup = false"
-    ></div>
+    ></div> -->
 
     <div v-if="loadingError" class="errorMessage">{{ $t('game.loading_error') }}</div>
 
@@ -27,26 +27,7 @@
         :controlledByKeyboard="gameMode === variables.GAME_MODE_KEYBOARD"
       />
     </div>
-
-    <!-- <div class="controls" v-if="gameData">
-      <div class="buttons">
-        <button
-          :disabled="gameState === variables.GAME_IS_NEW"
-          @click="restart"
-        ><span class="restartIcon"></span>{{ $t('game.restart') }}</button>
-        <button
-          :class="{'selected': gameMode === variables.GAME_MODE_KEYBOARD}"
-          @click="gameMode = gameMode === variables.GAME_MODE_KEYBOARD ? variables.GAME_MODE_MOUSE : variables.GAME_MODE_KEYBOARD"
-        ><span class="keyboardIcon"></span>{{ $t('game.keyboard') }}</button>
-      </div>
-
-      <GameKeyboard
-        v-if="gameMode === variables.GAME_MODE_KEYBOARD"
-        @move="moveActiveCell($event)"
-        @select="selectActiveCell($event)"
-      />
-    </div> -->
-    <img class="game_goback" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
+    <img class="game_goback" @click="goStage" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
     <img class="game_title" src="http://pic.deaso40.com/ljhy/5立春/关卡-标题.png" />
     <img class="game_cell" src="http://pic.deaso40.com/ljhy/5立春/关卡-规格.png" />
     <img class="game_time" src="http://pic.deaso40.com/ljhy/5立春/关卡-时间.png" />
@@ -55,6 +36,10 @@
     <div class="game_timetext">
       1234
     </div>
+    <transition name="fade">
+      <div v-show="showDonePopup" class="modal-back">
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -87,6 +72,10 @@ export default {
   watch: {
     gameState: function (newVal, oldVal) {
       if (oldVal && newVal !== oldVal && newVal === variables.GAME_IS_FINISHED) {
+        const _this = this;
+        setTimeout(function(){
+          _this.goFinish()
+        },1000);
         this.showDonePopup = true;
       }
     },
@@ -95,6 +84,12 @@ export default {
     }
   },
   methods: {
+    goStage(){
+      this.$router.push('/stages');
+    },
+    goFinish(){
+      this.$router.push('/finish');
+    },
     moveActiveCell: function(direction) {
       this.$refs.gameField.moveActiveCell(direction);
     },
@@ -193,5 +188,22 @@ export default {
   height: auto;
   bottom: 0px;
   left: 0px;
+}
+.modal{
+  &-back{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: #ffffff;
+    z-index: 200;
+  }
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s ease
 }
 </style>
