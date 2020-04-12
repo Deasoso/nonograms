@@ -49,9 +49,9 @@ export default {
       };
       var x, y;
       if(this.successStar == 3){
-        if(index == 0){ styledata.left = '90px'; styledata.top = '44px'; }
-        else if(index == 1){ styledata.left= 'calc(50vw - 25px)'; styledata.top = '32px'; }
-        else { styledata.right = '90px'; styledata.top = '44px'; }
+        if(index == 0){ styledata.left = 'calc(50vw - 67px)'; styledata.top = '44px'; }
+        else if(index == 1){ styledata.left= 'calc(50vw - 27px)'; styledata.top = '32px'; }
+        else { styledata.left = 'calc(50vw + 13px)'; styledata.top = '44px'; }
       }
       return styledata;
     }
@@ -113,21 +113,21 @@ export default {
   position: absolute;
   width: 116px;
   height: auto;
-  bottom: 56px;
+  bottom: 46px;
   left: 20px;
 }
 .finish_dialog{
   position: absolute;
   width: 206px;
   height: auto;
-  bottom: 104px;
-  right: 30px;
+  bottom: 94px;
+  left: 94px;
 }
 .finish_next{
   position: absolute;
   width: 184px;
   height: auto;
-  top: 496px;
+  bottom: 32px;
   left: calc(50vw - 92px);
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="loader">
-    <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_天空.png" />
+    <img ref="stages" class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_天空.png" />
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_地图.png" />
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_山脉.png" />
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_小山.png" />
@@ -19,7 +19,7 @@
     </transition>
     <transition name="flyin1">
       <div v-show="modalshowed" class="modal-window">
-        <img class="modal-text" :src="gamesList[selectedStage].stages_modal_title" />
+        <img class="modal-text" :src="gamesList[selectedStage] ? gamesList[selectedStage].stages_modal_title : ''"/>
         <img class="modal-start" @click="enter(selectedStage)" src="http://pic.deaso40.com/ljhy/5立春/开始游戏.png" />
       </div>
     </transition>
@@ -42,14 +42,12 @@ export default {
   computed: {
     ...mapState(['gamesList', 'gamesState'])
   },
-  async beforeMount(){
+  async mounted(){
     await this.$store.dispatch(ActionsTypes.LOAD_GAMES);
     await this.$store.dispatch(ActionsTypes.LOAD_GAMES_STATE);
     this.getPreStage();
     this.addallstage();
-  },
-  async mounted(){
-    
+    window.scroll((this.preStage - 1) * 106,0);
   },
   methods:{
     gameStateId: function(gameId) {
@@ -111,7 +109,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .stagesback{
-  width: 800vw;
+  width: 2560px;
   height: 100vh;
   position: absolute;
   top: 0;
@@ -156,9 +154,8 @@ export default {
   &-window{
     position: fixed;
     margin-top: 210px;
-    left: 48px;
-    right: 48px;
     height: 148px;
+    width: 100vw;
     border-radius: 10px;
     // background-color: #ffffff;
   }
@@ -172,14 +169,19 @@ export default {
   }
   &-text{
     // position: absolute;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: auto;
+    height: 148px;
+    top: 0px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
   }
   &-start{
     position: absolute;
     top: 86px;
     width: 180px;
-    left: calc(50vw - 90px - 48px);
+    left: calc(50vw - 90px);
   }
 }
 </style>

@@ -54,8 +54,8 @@ export default {
   },
   mounted(){
     this.flyin1 = true;
-    localStorage.removeItem('gamesState')
-    localStorage.removeItem('gamesProcess')
+    // localStorage.removeItem('gamesState')
+    // localStorage.removeItem('gamesProcess')
   },
   methods:{
     start(){

@@ -66,7 +66,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['gameData']),
+    ...mapState(['gameData', 'gamesState']),
     gameState: function () {
       return this.$store.getters.gameState(this.gameId);
     }
@@ -123,8 +123,13 @@ export default {
       this.$refs.gameField.clean();
     }
   },
-  mounted() {
-    this.loadGame(this.$route.params.id);
+  async mounted() {
+    await this.loadGame(this.$route.params.id);
+    if(!this.gamestate || this.gameState == 0)
+    this.$store.dispatch(ActionsTypes.SET_GAME_STATE, {
+      id: this.$route.params.id,
+      state: variables.GAME_IN_PROCESS
+    });
   }
 }
 </script>
@@ -141,9 +146,9 @@ export default {
 }
 .game_goback{
   position: absolute;
-  width: 46px;
+  width: 40px;
   height: auto;
-  top: 8px;
+  top: 18px;
   left: 8px;
 }
 .game_title{
@@ -182,7 +187,7 @@ export default {
   width: 50px;
   height: auto;
   bottom: 5px;
-  right: 5px;
+  right: 15px;
 }
 .game_girl{
   position: absolute;
