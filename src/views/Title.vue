@@ -139,70 +139,63 @@ export default {
   &-text1{
     position: absolute;
     width: auto;
-    height: 80px;
+    height: 100px;
     top: 136px;
     left: 10px;
   }
   &-text2{
     position: absolute;
     width: auto;
-    height: 80px;
+    height: 100px;
     top: 120px;
-    left: 80px;
+    left: 95px;
   }
   &-text3{
     position: absolute;
     width: auto;
-    height: 80px;
+    height: 100px;
     top: 120px;
-    right: 90px;
+    right: 95px;
   }
   &-text4{
     position: absolute;
     width: auto;
-    height: 80px;
+    height: 100px;
     top: 136px;
     right: 10px;
   }
 }
 .titlebtn1{
   position: absolute;
-  width: 180px;
+  width: 200px;
   height: auto;
-  top: 308px;
-  left: calc(50vw - 90px);
+  top: 366px;
+  left: calc(50vw - 100px);
 }
 .titlebtn2{
   position: absolute;
-  width: 180px;
+  width: 200px;
   height: auto;
-  top: 368px;
-  left: calc(50vw - 90px);
-}
-.titlebtn2{
-  position: absolute;
-  width: 180px;
-  height: auto;
-  top: 368px;
-  left: calc(50vw - 90px);
+  top: 438px;
+  left: calc(50vw - 100px);
 }
 .option{
   position: absolute;
-  width: 40px;
+  width: 50px;
   height: auto;
   top: 16px;
   right: 16px;
 }
 .mine{
   position: absolute;
-  width: 60px;
+  width: 70px;
   height: auto;
   bottom: 16px;
   left: 16px;
 }
 .shop{
   position: absolute;
-  width: 60px;
+  width: 70px;
   height: auto;
   bottom: 16px;
   right: 16px;
@@ -210,37 +203,37 @@ export default {
 .cha{
   &-cha1{
     position: absolute;
-    width: 20px;
+    width: 26px;
     height: auto;
-    top: 154px;
-    left: 18px;
+    top: 162px;
+    left: 20px;
   }
   &-cha2{
     position: absolute;
-    width: 20px;
+    width: 26px;
     height: auto;
-    top: 130px;
-    left: 120px;
+    top: 136px;
+    left: 144px;
   }
   &-cha3{
     position: absolute;
-    width: 20px;
+    width: 26px;
     height: auto;
-    top: 130px;
-    right: 132px;
+    top: 134px;
+    right: 144px;
   }
   &-cha4{
     position: absolute;
-    width: 20px;
+    width: 26px;
     height: auto;
-    top: 130px;
-    right: 106px;
+    top: 134px;
+    right: 118px;
   }
   &-cha5{
     position: absolute;
-    width: 20px;
+    width: 26px;
     height: auto;
-    top: 152px;
+    top: 156px;
     right: 20px;
   }
 }

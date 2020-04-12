@@ -9,7 +9,7 @@
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_小树.png" />
     <img class="back" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
     <img class="star" src="http://pic.deaso40.com/ljhy/4地图/星星.png" />
-    <div class="star-num">0</div>
+    <div class="star-num">{{stars}}</div>
     <div v-for="item, index in stageList">
       <img :style="getitemstyle(index)" @click="showmodal(index)" :src="item.src" />
     </div>
@@ -36,7 +36,8 @@ export default {
       stageList: [],
       preStage: 0,
       modalshowed: false,
-      selectedStage: 0
+      selectedStage: 0,
+      stars: 0,
     }
   },
   computed: {
@@ -48,6 +49,10 @@ export default {
     this.getPreStage();
     this.addallstage();
     window.scroll((this.preStage - 1) * 106,0);
+    this.stars = 0;
+    for(var index in this.gamesState){
+      if(this.gamesState[index] === 2) this.stars += 3;
+    }
   },
   methods:{
     gameStateId: function(gameId) {
@@ -78,7 +83,7 @@ export default {
       }
       if(this.preStage >= 0 && this.preStage < this.stageList.length){
         this.addstage({x: this.stageList[this.preStage].x + 10, 
-          y: this.stageList[this.preStage].y - (72 / 568 * document.getElementById('app').clientHeight), 
+          y: this.stageList[this.preStage].y - (72 * document.getElementById('app').clientHeight / 568 ), 
           src: 'http://pic.deaso40.com/ljhy/4地图/24关按钮/地图_正在完成定位.png',
           width: 30});
       }
@@ -86,9 +91,9 @@ export default {
     addstage(data){
       this.stageList.push({
         x: data.x,
-        y: (data.y) / 568 * document.getElementById('app').clientHeight,
+        y: (data.y) * document.getElementById('app').clientHeight / 568,
         src: data.src,
-        width: data.width ? data.width : 50
+        width: data.width ? data.width : 56
       });
     },
     getitemstyle(index){
@@ -120,21 +125,21 @@ export default {
 }
 .back{
   position: fixed;
-  width: 50px;
+  width: 48px;
   height: auto;
-  top: 8px;
-  left: 8px;
+  top: 12px;
+  left: 12px;
 }
 .star{
   position: fixed;
-  width: 100px;
+  width: 102px;
   height: auto;
-  top: 6px;
+  top: 12px;
   right: 0px;
   &-num{
     position: fixed;
-    font-size: 16px;
-    top: 28px;
+    font-size: 18px;
+    top: 33px;
     right: 28px;
   }
 }
@@ -153,7 +158,7 @@ export default {
 .modal{
   &-window{
     position: fixed;
-    margin-top: 210px;
+    margin-top: 242px;
     height: 148px;
     width: 100vw;
     border-radius: 10px;
@@ -171,7 +176,7 @@ export default {
     // position: absolute;
     position: absolute;
     width: auto;
-    height: 148px;
+    height: 170px;
     top: 0px;
     left: 0;
     right: 0;
@@ -179,9 +184,9 @@ export default {
   }
   &-start{
     position: absolute;
-    top: 86px;
-    width: 180px;
-    left: calc(50vw - 90px);
+    top: 108px;
+    width: 216px;
+    left: calc(50vw - 108px);
   }
 }
 </style>

@@ -9,13 +9,19 @@
       <img :style="starStyle(index)" src="http://pic.deaso40.com/ljhy/3基础教程/2/星星-大.png" />
     </div>
     <img class="finish_board" src="http://pic.deaso40.com/ljhy/5立春/关卡-布底.png" />
+    <img class="star" src="http://pic.deaso40.com/ljhy/4地图/星星.png" />
+    <div class="star-num">{{stars}}</div>
     <div v-if="gameData">
       <img class="finish_title" :src="gameData.finish_title" />
       <img class="finish_pic" :src="gameData.finish_pic" />
     </div>
+    <div class="finish_timetext">
+      {{timetext}}
+    </div>
     <img class="finish_girl" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
     <img class="finish_dialog" src="http://pic.deaso40.com/ljhy/5立春/关卡-对话6.png" />
     <img class="finish_next" @click="goStage" src="http://pic.deaso40.com/ljhy/3基础教程/2/下一步.png" />
+    <img class="finish_collect" @click="collected=!collected" :src="collectedSrc()" />
   </div>
 </template>
 <script>
@@ -27,31 +33,44 @@ export default {
       showDonePopup: true,
       successStar: 3,
       starList: [0,0,0],
-      gameId: 0
+      gameId: 0,
+      collected: false,
+      timetext: "00:00",
+      stars: 0,
     };
   },
   mounted(){
     this.showDonePopup = false;
     this.gameId = this.$route.params.id;
+    console.log(this.$store.state);
+    this.timetext = this.$store.state.finishTime;
+    this.stars = this.$store.state.gameStars;
   },
   computed: {
     ...mapState(['gameData']),
   },
   methods: {
+    collectedSrc(){
+      if(this.collected){
+        return "http://pic.deaso40.com/ljhy/5立春/关卡-收藏成功.png";
+      }else{
+        return "http://pic.deaso40.com/ljhy/5立春/关卡-收藏.png";
+      }
+    },
     goStage(){
       this.$router.push('/stages');
     },
     starStyle(index){
       var styledata = {
         position: 'absolute',
-        width: '54px',
+        width: '60px',
         height: 'auto',
       };
       var x, y;
       if(this.successStar == 3){
-        if(index == 0){ styledata.left = 'calc(50vw - 67px)'; styledata.top = '44px'; }
-        else if(index == 1){ styledata.left= 'calc(50vw - 27px)'; styledata.top = '32px'; }
-        else { styledata.left = 'calc(50vw + 13px)'; styledata.top = '44px'; }
+        if(index == 0){ styledata.left = 'calc(50vw - 80px)'; styledata.top = '64px'; }
+        else if(index == 1){ styledata.left= 'calc(50vw - 30px)'; styledata.top = '52px'; }
+        else { styledata.right = 'calc(50vw - 80px)'; styledata.top = '64px'; }
       }
       return styledata;
     }
@@ -88,46 +107,76 @@ export default {
 }
 .finish_board{
   position: absolute;
-  width: 310px;
+  width: 360px;
   height: auto;
-  top: 96px;
-  left: calc(50vw - 155px);
+  top: 106px;
+  left: calc(50vw - 180px);
 }
 .finish_title{
   position: absolute;
-  width: 100px;
+  width: 120px;
   height: auto;
-  top: 144px;
-  left: calc(50vw - 50px);
+  top: 160px;
+  left: calc(50vw - 60px);
 }
 .finish_pic{
   position: absolute;
   width: auto;
-  height: 160px;
-  top: 184px;
+  height: 172px;
+  top: 206px;
   left: 0;
   right: 0;
   margin: 0 auto;
 }
+.finish_timetext{
+  position: absolute;
+  width: 44px;
+  height: auto;
+  left: 274px;
+  top: 406px;
+  font-size: 14px;
+  color: #ffffff;
+  text-align:right;
+}
 .finish_girl{
   position: absolute;
-  width: 116px;
+  width: 136px;
   height: auto;
-  bottom: 46px;
+  bottom: 56px;
   left: 20px;
 }
 .finish_dialog{
   position: absolute;
-  width: 206px;
+  width: 240px;
   height: auto;
-  bottom: 94px;
+  bottom: 108px;
   left: 94px;
 }
 .finish_next{
   position: absolute;
-  width: 184px;
+  width: 220px;
   height: auto;
-  bottom: 32px;
-  left: calc(50vw - 92px);
+  bottom: 38px;
+  left: calc(50vw - 110px);
+}
+.finish_collect{
+  position: absolute;
+  width: 56px;
+  height: auto;
+  bottom: 36px;
+  right: 12px;
+}
+.star{
+  position: fixed;
+  width: 102px;
+  height: auto;
+  top: 12px;
+  right: 0px;
+  &-num{
+    position: fixed;
+    font-size: 18px;
+    top: 33px;
+    right: 28px;
+  }
 }
 </style>

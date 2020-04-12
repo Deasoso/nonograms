@@ -20,9 +20,18 @@ export default new Vuex.Store({
     /** @type GameModel[] */
     gamesList: [],
     gamesListLoadingStatus: '',
-    gamesState: {}
+    gamesState: {},
+
+    finishTime: 0,
+    gameStars: 0
   },
   mutations: {
+    setFinishTime(state, time){
+      state.finishTime = time;
+    },
+    setGameStars(state, stars){
+      state.gameStars = stars;
+    },
     [MutationTypes.SET_GAMES_LIST_STATE]: function (state, gamesListState) {
       state.gamesState = gamesListState;
     },

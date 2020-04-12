@@ -36,7 +36,7 @@
     <img class="game_girl" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
     <img class="game_item" src="http://pic.deaso40.com/ljhy/5立春/关卡-锦囊.png" />
     <div class="game_timetext">
-      1234
+      {{timetext}}
     </div>
     <transition name="fade">
       <div v-show="showDonePopup" class="modal-back">
@@ -62,11 +62,15 @@ export default {
       gameMode: variables.GAME_MODE_MOUSE,
       gameProcess: null,
       showDonePopup: false,
+      timer: "",
+      seconds: 0,
+      minutes: 0,
+      timetext: "00:00",
       variables: variables
     };
   },
   computed: {
-    ...mapState(['gameData', 'gamesState']),
+    ...mapState(['gameData', 'gamesState', 'setFinishTime']),
     gameState: function () {
       return this.$store.getters.gameState(this.gameId);
     }
@@ -86,10 +90,29 @@ export default {
     }
   },
   methods: {
+    startTimer () {
+    if (this.seconds >= 59) {
+      if (this.minutes >= 59) {
+        // 溢出
+      }else{
+        this.seconds = 0;
+        this.minutes = this.minutes + 1;
+      }
+    }else{
+      this.seconds += 1;
+    }
+    this.timetext = (this.minutes < 10 ? '0' + this.minutes : this.minutes) + ':' + (this.seconds < 10 ? '0' + this.seconds : this.seconds);
+    },
     goStage(){
       this.$router.push('/stages');
     },
     goFinish(){
+      var allstars = 0;
+      for(var index in this.gamesState){
+        if(this.gamesState[index] === 2) allstars += 3;
+      }
+      this.$store.commit('setFinishTime', this.timetext);
+      this.$store.commit('setGameStars', allstars);
       this.$router.push('/finish/' + this.gameId);
     },
     moveActiveCell: function(direction) {
@@ -130,6 +153,10 @@ export default {
       id: this.$route.params.id,
       state: variables.GAME_IN_PROCESS
     });
+    this.timer = setInterval(this.startTimer, 1000);
+  },
+  destroyed(){
+    clearInterval(this.timer);
   }
 }
 </script>
@@ -176,7 +203,7 @@ export default {
   position: absolute;
   width: 44px;
   height: auto;
-  right: 24px;
+  right: 22px;
   top: 88px;
   font-size: 12px;
   color: #ffffff;
