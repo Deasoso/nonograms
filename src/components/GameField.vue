@@ -54,7 +54,7 @@
       </div>
       <!-- 以上一段opacity为0，仅仅用于计算点击 -->
       <img :style="backStyle()" :src="gameData.game_back" />
-      <img class="game_smallback" src="http://pic.deaso40.com/ljhy/关卡背景补充/预览窗口.png" />
+      <img :style="smallBackStyle()" src="http://pic.deaso40.com/ljhy/关卡背景补充/预览窗口.png" />
       <div class="selectedcell">
         <div v-for="y in fieldHeight">
           <div v-for="x in fieldWidth">
@@ -121,6 +121,8 @@ export default {
       colFilledChunks: [],
       cellSize: 40,
       cellsClasses: [],
+      game_left: 15,
+      game_top: 126,
       variables
     };
   },
@@ -248,7 +250,7 @@ export default {
       return {
         position: 'fixed',
         left: (88 + ((x - 1) * this.cellSize)) + 'px',
-        top: '106px',
+        top: this.game_top + 'px',
         width: (this.cellSize - 2) + 'px',
         height: '70px',
       }
@@ -256,8 +258,8 @@ export default {
     heightPicStyle(y){ 
       return{
         position: 'fixed',
-        left: '15px',
-        top: (179 + ((y - 1) * this.cellSize)) + 'px',
+        left: this.game_left + 'px',
+        top: (this.game_top + 73 + ((y - 1) * this.cellSize)) + 'px',
         width: '70px',
         height: (this.cellSize - 2) + 'px',
       }
@@ -266,8 +268,8 @@ export default {
       const color = (this.colFilledChunks[x - 1] && this.colFilledChunks[x - 1][y]) ? '#8C9ECE' : '#ffffff';
       return {
         position: 'fixed',
-        left: (88 + ((x - 1) * this.cellSize)) + 'px',
-        top: (98 + ((5 - this.gameData['columns'][x-1].length + y) * 15)) + 'px',
+        left: (this.game_left + 73 + ((x - 1) * this.cellSize)) + 'px',
+        top: (this.game_top - 8 + ((5 - this.gameData['columns'][x-1].length + y) * 15)) + 'px',
         height: '15px',
         width: (this.cellSize - 2) + 'px',
         'text-align': 'center',
@@ -280,7 +282,7 @@ export default {
       return{
         position: 'fixed',
         left: (8 + ((5 - this.gameData['rows'][y-1].length + x) * 15)) + 'px',
-        top: (172 + ((y - 0.5) * this.cellSize)) + 'px',
+        top: (this.game_top + 66 + ((y - 0.5) * this.cellSize)) + 'px',
         width: '15px',
         height: '16px',
         'vertical-align': 'middle',
@@ -289,13 +291,22 @@ export default {
       }
     },
     backStyle(){
-      return{
+      return {
         position: 'absolute',
         width: ((this.cellSize * this.fieldWidth) + 4) + 'px',
         height: 'auto',
-        top: '176px',
-        left: '85px',
+        top: (this.game_top + 70) + 'px',
+        left: (this.game_left + 70) + 'px',
         'z-index': '50'
+      }
+    },
+    smallBackStyle(){
+      return {
+        position: 'absolute',
+        width: '62px',
+        height: 'auto',
+        top: (this.game_top + 4) + 'px',
+        left: (this.game_left + 5) + 'px',
       }
     },
     /**
@@ -666,7 +677,7 @@ export default {
 .selectedcell{
   position: relative;
   margin-left: 87px;
-  margin-top: 178px;
+  margin-top: 198px;
   display: unset;
   pointer-events: none;
   z-index: 100;
@@ -676,12 +687,5 @@ export default {
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .1s ease
-}
-.game_smallback{
-  position: absolute;
-  width: 62px;
-  height: auto;
-  top: 110px;
-  left: 20px;
 }
 </style>

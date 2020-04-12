@@ -76,9 +76,9 @@ export default {
         else addxy.src = mapxys[index].stages_not_finished_pic;
         this.addstage(addxy);
       }
-      if(this.preStage < this.stageList.length){
+      if(this.preStage >= 0 && this.preStage < this.stageList.length){
         this.addstage({x: this.stageList[this.preStage].x + 10, 
-          y: this.stageList[this.preStage].y - 24, 
+          y: this.stageList[this.preStage].y - (72 / 568 * document.getElementById('app').clientHeight), 
           src: 'http://pic.deaso40.com/ljhy/4地图/24关按钮/地图_正在完成定位.png',
           width: 30});
       }

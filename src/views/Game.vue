@@ -146,52 +146,52 @@ export default {
 }
 .game_goback{
   position: absolute;
-  width: 40px;
+  width: 50px;
   height: auto;
   top: 18px;
   left: 8px;
 }
 .game_title{
   position: absolute;
-  width: 120px;
+  width: 150px;
   height: auto;
-  left: calc(50vw - 60px);
+  left: calc(50vw - 75px);
   top: 16px;
 }
 .game_cells{
   position: absolute;
-  width: 60px;
+  width: 70px;
   height: auto;
-  left: calc(50vw - 30px);
-  top: 68px;
+  left: calc(50vw - 35px);
+  top: 80px;
 }
 .game_time{
   position: absolute;
   width: 68px;
   height: auto;
   right: 12px;
-  top: 66px;
+  top: 80px;
 }
 .game_timetext{
   position: absolute;
   width: 44px;
   height: auto;
   right: 24px;
-  top: 74px;
+  top: 88px;
   font-size: 12px;
   color: #ffffff;
   text-align:right;
 }
 .game_item{
   position: absolute;
-  width: 50px;
+  width: 56px;
   height: auto;
-  bottom: 5px;
-  right: 15px;
+  bottom: 12px;
+  right: 12px;
 }
 .game_girl{
   position: absolute;
-  width: 100px;
+  width: 112px;
   height: auto;
   bottom: 0px;
   left: 0px;
