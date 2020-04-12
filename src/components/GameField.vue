@@ -365,7 +365,7 @@ export default {
           heightRatio = layoutHeight / gameFieldHeight,
 
           ratio = Math.min(widthRatio, heightRatio);
-        if(gameFullWidth < 340) this.cellSize = Math.floor((gameFullWidth - 100) / this.fieldWidth);
+        if(gameFullWidth < 400) this.cellSize = Math.floor((gameFullWidth - 100) / this.fieldWidth);
         else this.cellSize = Math.floor(240 / this.fieldWidth);
         // this.cellSize = Math.floor(this.cellSize * ratio);
       // });

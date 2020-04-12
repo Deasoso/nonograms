@@ -86,7 +86,7 @@ export default {
     addstage(data){
       this.stageList.push({
         x: data.x,
-        y: data.y,
+        y: (data.y) / 568 * document.getElementById('app').clientHeight,
         src: data.src,
         width: data.width ? data.width : 50
       });
