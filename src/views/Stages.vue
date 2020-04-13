@@ -2,16 +2,22 @@
   <div class="loader">
     <img ref="stages" class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_天空.png" />
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_地图.png" />
+    <div v-for="item, index in extraList">
+      <img class="stagesback" :src="item.src" />
+    </div>
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_山脉.png" />
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_小山.png" />
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_房子.png" />
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_树枝.png" />
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_小树.png" />
-    <img class="back" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
+    <img class="back" @click="goTitle()" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
     <img class="star" src="http://pic.deaso40.com/ljhy/4地图/星星.png" />
     <div class="star-num">{{stars}}</div>
     <div v-for="item, index in stageList">
       <img :style="getitemstyle(index)" @click="showmodal(index)" :src="item.src" />
+    </div>
+    <div v-for="item, index in finishList">
+      <img :style="getfinishstyle(index)" :src="item.src" />
     </div>
     <transition name="fade">
       <div v-show="modalshowed" @click="modalshowed = false" class="modal-back">
@@ -34,6 +40,8 @@ export default {
   data: function () {
     return {
       stageList: [],
+      extraList: [],
+      finishList: [],
       preStage: 0,
       modalshowed: false,
       selectedStage: 0,
@@ -48,6 +56,7 @@ export default {
     await this.$store.dispatch(ActionsTypes.LOAD_GAMES_STATE);
     this.getPreStage();
     this.addallstage();
+    this.addallextra();
     window.scroll((this.preStage - 1) * 106,0);
     this.stars = 0;
     for(var index in this.gamesState){
@@ -58,8 +67,8 @@ export default {
     gameStateId: function(gameId) {
       return this.gamesState[gameId.toString()];
     },
-    start(){
-      
+    goTitle(){
+      this.$router.push('/title');
     },
     getPreStage(){
       this.preStage = 0;
@@ -69,10 +78,12 @@ export default {
       }
     },
     showmodal(index) {
+      console.log(index);
       this.selectedStage = index;
       this.modalshowed = !this.modalshowed;
     },
     addallstage(){
+      this.stageList = [];
       var addxy = {};
       for (var index in mapxys){
         addxy = mapxys[index];
@@ -80,10 +91,16 @@ export default {
         else if(this.gamesState[index] === 1) addxy.src = mapxys[index].stages_finishing_pic;
         else addxy.src = mapxys[index].stages_not_finished_pic;
         this.addstage(addxy);
+        if(this.gamesState[index] === 2){
+          this.finishList.push({x: mapxys[index].x - 16, 
+            y: (mapxys[index].y + (40 * document.getElementById('app').clientHeight / 568 )) * document.getElementById('app').clientHeight / 568, 
+            src: mapxys[index].finish_pic,
+            width: 90});
+        }
       }
       if(this.preStage >= 0 && this.preStage < this.stageList.length){
-        this.addstage({x: this.stageList[this.preStage].x + 10, 
-          y: this.stageList[this.preStage].y - (72 * document.getElementById('app').clientHeight / 568 ), 
+        this.finishList.push({x: this.stageList[this.preStage].x + 10, 
+          y: (this.stageList[this.preStage].y - (72 * document.getElementById('app').clientHeight / 568 )) * document.getElementById('app').clientHeight / 568, 
           src: 'http://pic.deaso40.com/ljhy/4地图/24关按钮/地图_正在完成定位.png',
           width: 30});
       }
@@ -96,8 +113,40 @@ export default {
         width: data.width ? data.width : 56
       });
     },
+    addallextra(){
+      this.extraList = [];
+      for (var index in mapxys){
+        if(mapxys[index].new_pic == "") continue;
+        if(this.gamesState[index] === 2){
+          this.extraList.push({
+            x: 0,
+            y: 0,
+            src: mapxys[index].new_pic});
+        }
+      }
+    },
+    getextrastyle(index){
+      const item = this.extraList[index];
+      var style = [];
+      style.push({position: 'absolute'});
+      style.push({width: '800vw'});
+      style.push({height: '100vh'});
+      style.push({left: item.x + 'px'});
+      style.push({top: item.y + 'px'});
+      return style;
+    },
     getitemstyle(index){
       const item = this.stageList[index];    
+      var style = [];
+      style.push({position: 'absolute'});
+      style.push({width: item.width + 'px'});
+      style.push({height: 'auto'});
+      style.push({left: item.x + 'px'});
+      style.push({top: item.y + 'px'});
+      return style;
+    },
+    getfinishstyle(index){
+      const item = this.finishList[index];    
       var style = [];
       style.push({position: 'absolute'});
       style.push({width: item.width + 'px'});
@@ -129,6 +178,7 @@ export default {
   height: auto;
   top: 12px;
   left: 12px;
+  z-index: 75;
 }
 .star{
   position: fixed;

@@ -5,7 +5,9 @@
     "y": 400,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/1_立春-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/1_立春-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/1_立春-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/1_立春-已完成.png",
+    "new_pic": "http://pic.deaso40.com/ljhy/通关后地图新增图案-修改/地图_图形1_草地.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形1.png"
   },
   {
     "id": 1,
@@ -13,7 +15,9 @@
     "y": 378,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/2_雨水-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/2_雨水-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/2_雨水-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/2_雨水-已完成.png",
+    "new_pic": "",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形2_1.png"
   },
   {
     "id": 2,
@@ -21,7 +25,9 @@
     "y": 368,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/3_惊蛰-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/3_惊蛰-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/3_惊蛰-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/3_惊蛰-已完成.png",
+    "new_pic": "http://pic.deaso40.com/ljhy/通关后地图新增图案-修改/地图_图形2_树叶.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形2_2.png"
   },
   {
     "id": 3,
@@ -29,7 +35,9 @@
     "y": 346,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/4_春分-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/4_春分-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/4_春分-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/4_春分-已完成.png",
+    "new_pic": "",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形2_3.png"
   },
   {
     "id": 4,
@@ -37,7 +45,9 @@
     "y": 356,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/5_清明-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/5_清明-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/5_清明-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/5_清明-已完成.png",
+    "new_pic": "http://pic.deaso40.com/ljhy/通关后地图新增图案-修改/地图_图形3_小花.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形3.png"
   },
   {
     "id": 5,
@@ -45,7 +55,9 @@
     "y": 401,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/6_谷雨-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/6_谷雨-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/6_谷雨-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/6_谷雨-已完成.png",
+    "new_pic": "http://pic.deaso40.com/ljhy/通关后地图新增图案-修改/地图_图形4_庄稼.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形4.png"
   },
   {
     "id": 6,
@@ -53,7 +65,9 @@
     "y": 421,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/7_立夏-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/7_立夏-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/7_立夏-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/7_立夏-已完成.png",
+    "new_pic": "http://pic.deaso40.com/ljhy/通关后地图新增图案-修改/地图_图形5_向日葵.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形5.png"
   },
   {
     "id": 7,
@@ -61,7 +75,9 @@
     "y": 421,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/8_小满-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/8_小满-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/8_小满-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/8_小满-已完成.png",
+    "new_pic": "",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形6_1.png"
   },
   {
     "id": 8,
@@ -69,7 +85,9 @@
     "y": 421,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/9_芒种-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/9_芒种-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/9_芒种-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/9_芒种-已完成.png",
+    "new_pic": "http://pic.deaso40.com/ljhy/通关后地图新增图案-修改/地图_图形6_人.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形6_2.png"
   },
   {
     "id": 9,
@@ -77,7 +95,9 @@
     "y": 400,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/10_夏至-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/10_夏至-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/10_夏至-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/10_夏至-已完成.png",
+    "new_pic": "http://pic.deaso40.com/ljhy/通关后地图新增图案-修改/地图_图形7_四叶草.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形7.png"
   },
   {
     "id": 10,
@@ -85,7 +105,8 @@
     "y": 392,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/11_小暑-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/11_小暑-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/11_小暑-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/11_小暑-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形8_1.png"
   },
   {
     "id": 11,
@@ -93,7 +114,8 @@
     "y": 370,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/12_大暑-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/12_大暑-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/12_大暑-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/12_大暑-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形8_2.png"
   },
   {
     "id": 12,
@@ -101,7 +123,8 @@
     "y": 336,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/13_立秋-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/13_立秋-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/13_立秋-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/13_立秋-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形9_1.png"
   },
   {
     "id": 13,
@@ -109,7 +132,8 @@
     "y": 316,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/14_处暑-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/14_处暑-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/14_处暑-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/14_处暑-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形9_2.png"
   },
   {
     "id": 14,
@@ -117,7 +141,8 @@
     "y": 316,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/15_白露-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/15_白露-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/15_白露-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/15_白露-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形10.png"
   },
   {
     "id": 15,
@@ -125,7 +150,8 @@
     "y": 302,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/16_秋分-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/16_秋分-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/16_秋分-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/16_秋分-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形11_1.png"
   },
   {
     "id": 16,
@@ -133,7 +159,8 @@
     "y": 296,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/17_寒露-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/17_寒露-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/17_寒露-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/17_寒露-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形11_2.png"
   },
   {
     "id": 17,
@@ -141,7 +168,8 @@
     "y": 322,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/18_霜降-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/18_霜降-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/18_霜降-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/18_霜降-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形12.png"
   },
   {
     "id": 18,
@@ -149,7 +177,8 @@
     "y": 352,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/19_立冬-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/19_立冬-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/19_立冬-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/19_立冬-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形13.png"
   },
   {
     "id": 19,
@@ -157,7 +186,8 @@
     "y": 384,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/20_小雪-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/20_小雪-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/20_小雪-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/20_小雪-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形14.png"
   },
   {
     "id": 20,
@@ -165,7 +195,8 @@
     "y": 396,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/21_大雪-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/21_大雪-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/21_大雪-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/21_大雪-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形15.png"
   },
   {
     "id": 21,
@@ -173,7 +204,8 @@
     "y": 394,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/22_冬至-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/22_冬至-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/22_冬至-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/22_冬至-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形15_2.png"
   },
   {
     "id": 22,
@@ -181,7 +213,8 @@
     "y": 406,
     "stages_not_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/23_小寒-未完成.png",
     "stages_finishing_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/23_小寒-正在完成.png",
-    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/23_小寒-已完成.png"
+    "stages_finished_pic": "http://pic.deaso40.com/ljhy/4地图/24关按钮/23_小寒-已完成.png",
+    "finish_pic": "http://pic.deaso40.com/ljhy/4地图/通关后图形/地图_图形16.png"
   },
   {
     "id": 23,

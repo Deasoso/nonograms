@@ -19,9 +19,11 @@
       {{timetext}}
     </div>
     <img class="finish_girl" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
-    <img class="finish_dialog" src="http://pic.deaso40.com/ljhy/5立春/关卡-对话6.png" />
+    <transition name="quickfade">
+      <img v-show="dialogShowed" class="finish_dialog" :src="dialogSrc()" />
+    </transition>
     <img class="finish_next" @click="goStage" src="http://pic.deaso40.com/ljhy/3基础教程/2/下一步.png" />
-    <img class="finish_collect" @click="collected=!collected" :src="collectedSrc()" />
+    <img class="finish_collect" @click="collect()" :src="collectedSrc()" />
   </div>
 </template>
 <script>
@@ -37,19 +39,43 @@ export default {
       collected: false,
       timetext: "00:00",
       stars: 0,
+      dialogMode: 0,
+      dialogShowed: true
     };
   },
   mounted(){
     this.showDonePopup = false;
     this.gameId = this.$route.params.id;
-    console.log(this.$store.state);
     this.timetext = this.$store.state.finishTime;
     this.stars = this.$store.state.gameStars;
+    this.dialogShowed = true;
+    this.dialogMode = 0;
   },
   computed: {
     ...mapState(['gameData']),
   },
   methods: {
+    dialogSrc(){
+      if(this.dialogMode == 0){
+        return "http://pic.deaso40.com/ljhy/5立春/关卡-对话6.png";
+      }else{
+        return "http://pic.deaso40.com/ljhy/5立春/关卡-对话7.png"
+      }
+    },
+    collect(){
+      if(!this.dialogShowed) return;
+      const _this = this;
+      this.collected =! this.collected;
+      this.dialogShowed = false;
+      setTimeout(function(){
+        if(_this.dialogMode == 1){
+          _this.dialogMode = 0;
+        }else{
+          _this.dialogMode = 1;
+        }
+        _this.dialogShowed = true;
+      },500);
+    },
     collectedSrc(){
       if(this.collected){
         return "http://pic.deaso40.com/ljhy/5立春/关卡-收藏成功.png";
@@ -104,6 +130,12 @@ export default {
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity 1s ease
+}
+.quickfade-enter, .quickfade-leave-to {
+  opacity: 0
+}
+.quickfade-enter-active, .quickfade-leave-active {
+  transition: opacity 0.5s ease
 }
 .finish_board{
   position: absolute;
