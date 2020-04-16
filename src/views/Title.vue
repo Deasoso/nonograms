@@ -17,7 +17,7 @@
       <img v-show="flyin1" @click="start" class="titlebtn1" src="http://pic.deaso40.com/ljhy/2首页/首页-开始游戏.png" />
     </transition>
     <transition name="fade">
-      <img v-show="flyin1" class="titlebtn2" src="http://pic.deaso40.com/ljhy/2首页/首页-谜题设计.png" />
+      <img v-show="flyin1" @click="start2" class="titlebtn2" src="http://pic.deaso40.com/ljhy/2首页/首页-谜题设计.png" />
     </transition>
     <transition name="fade">
       <img v-show="flyin1" class="option" src="http://pic.deaso40.com/ljhy/2首页/首页-设置.png" />
@@ -69,6 +69,9 @@ export default {
       // }else{
         // this.$router.push('/stages');
       // }
+    },
+    start2(){
+      this.$router.push('/teachgame2');
     }
   }
 }

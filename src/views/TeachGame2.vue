@@ -3,44 +3,22 @@
     <img class="game_background" src="http://pic.deaso40.com/ljhy/3基础教程/1/背景.png" />
     <img class="game_goback" @click="goTitle" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
     <img class="game_skip" @click="goStage" src="http://pic.deaso40.com/ljhy/3基础教程/1/跳过.png" />
-    <transition name="fade">
-      <div v-show="pic_step < 10 && pic_step > 5">
-        <img class="finishing-back" src="http://pic.deaso40.com/ljhy/3基础教程/1/示例图2.png" />
-      </div>
-    </transition>
-    <transition name="fade">
-      <div v-show="pic_step < 15 && pic_step > 5">
-        <img class="finishing-pic" src="http://pic.deaso40.com/ljhy/3基础教程/1/示例图2部件1复制.png" />
-      </div>
-    </transition>
-    <transition name="fade">
-      <div v-show="pic_step < 35 && pic_step > 15">
-        <img class="finished-pic1" src="http://pic.deaso40.com/ljhy/3基础教程/1/示例图2部件1复制.png" />
-        <img class="finished-pic2" src="http://pic.deaso40.com/ljhy/3基础教程/1/示例图2部件1复制.png" />
-      </div>
-    </transition>
-    <transition name="fade">
-      <div v-show="pic_step < 35 && pic_step > 20">
-        <img class="finished-back" src="http://pic.deaso40.com/ljhy/3基础教程/1/示例图3.png" />
-      </div>
-    </transition>
+
     <!-- <transition name="fade"> -->
+      <div v-show="pic_step < 15 && pic_step > 10">
+        <img class="finishing-yellow1" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/格子2.png" />
+      </div>
+      <div v-show="pic_step < 29 && pic_step > 25">
+        <img class="finishing-yellow2" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/格子3.png" />
+      </div>
+      <div v-show="pic_step < 34 && pic_step > 30">
+        <img class="finishing-yellow3" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/格子3.png" />
+      </div>
       <div v-show="pic_step < 44 && pic_step > 40">
-        <img class="finishing-yellow1" src="http://pic.deaso40.com/ljhy/3基础教程/2/格子复制 2.png" />
-        <img class="finishing-hand1" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
+        <img class="finishing-yellow4" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/格子4.png" />
       </div>
       <div v-show="pic_step < 49 && pic_step > 45">
-        <img class="finishing-yellow2" src="http://pic.deaso40.com/ljhy/3基础教程/2/格子复制 5.png" />
-      </div>
-      <div v-show="pic_step < 54 && pic_step > 50">
-        <img class="finishing-yellow3" src="http://pic.deaso40.com/ljhy/3基础教程/2/格子复制 5.png" />
-      </div>
-      <div v-show="pic_step < 64 && pic_step > 60">
-        <img class="finishing-yellow41" src="http://pic.deaso40.com/ljhy/3基础教程/2/格子复制 10.png" />
-        <img class="finishing-yellow42" src="http://pic.deaso40.com/ljhy/3基础教程/2/格子复制 11.png" />
-      </div>
-      <div v-show="pic_step < 79 && pic_step > 75">
-        <img class="finishing-yellow5" src="http://pic.deaso40.com/ljhy/3基础教程/2/格子复制 15.png" />
+        <img class="finishing-yellow5" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/格子5.png" />
       </div>
     <!-- </transition> -->
     <transition name="fade">
@@ -48,17 +26,16 @@
         <img class="finish_dialog" :src="dialogSrc()"></img>
       </div>
     </transition>
-    <div v-show="pic_step > 35" class="gameField">
-      <GameField
-        v-if="gameData"
-        ref="gameField"
-        :gameData="gameData"
-        :gameProcess="gameProcess"
-        :controlledByKeyboard="gameMode === variables.GAME_MODE_KEYBOARD"
-        :picStep="pic_step"
-        @nextpic = "nextpic"
-      />
-    </div>
+    <GameField
+      v-if="gameData"
+      ref="gameField"
+      :gameData="gameData"
+      :gameProcess="gameProcess"
+      :controlledByKeyboard="gameMode === variables.GAME_MODE_KEYBOARD"
+      :picStep="pic_step"
+      @nextpic = "nextpic"
+    />
+    
     <img class="game_title" src="http://pic.deaso40.com/ljhy/3基础教程/2/玩法介绍.png" />
     <img class="game_girl" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
     <!-- <img v-show="dialogShowed" class="finish_dialog" :src="dialogSrc()" /> -->
@@ -91,7 +68,7 @@
 </template>
 
 <script>
-import GameField from '@/components/TeachGameField1';
+import GameField from '@/components/TeachGameField2';
 import GameKeyboard from '@/components/GameKeyboard';
 import Loader from "@/components/Loader";
 import {mapState} from 'vuex';
@@ -149,10 +126,19 @@ export default {
       if(this.pic_step == 1){ this.dialogShowed = true;}
       else if(this.pic_step == 5){this.dialogShowed = false;}
       else if(this.pic_step == 6){this.dialogShowed = true;}
+      else if(this.pic_step == 10){this.dialogShowed = false;}
+      else if(this.pic_step == 11){this.dialogShowed = true;}
+      else if(this.pic_step == 15){this.dialogShowed = false;}
+      else if(this.pic_step == 16){this.dialogShowed = true;}
+      if(this.pic_step == 19) return;
+      else if(this.pic_step == 20){this.dialogShowed = false;}
+      else if(this.pic_step == 21){this.dialogShowed = true;}
       else if(this.pic_step == 25){this.dialogShowed = false;}
       else if(this.pic_step == 26){this.dialogShowed = true;}
+      if(this.pic_step == 29) return;
       else if(this.pic_step == 30){this.dialogShowed = false;}
       else if(this.pic_step == 31){this.dialogShowed = true;}
+      if(this.pic_step == 34) return;
       else if(this.pic_step == 35){this.dialogShowed = false;}
       else if(this.pic_step == 36){this.dialogShowed = true;}
       else if(this.pic_step == 40){this.dialogShowed = false;}
@@ -163,26 +149,19 @@ export default {
       if(this.pic_step == 49) return;
       else if(this.pic_step == 50){this.dialogShowed = false;}
       else if(this.pic_step == 51){this.dialogShowed = true;}
-      if(this.pic_step == 54) return;
       else if(this.pic_step == 55){this.dialogShowed = false;}
-      else if(this.pic_step == 56){this.pic_step += 5; this.dialogShowed = true;}
+      else if(this.pic_step == 56){this.dialogShowed = true;}
       else if(this.pic_step == 60){this.dialogShowed = false;}
       else if(this.pic_step == 61){this.dialogShowed = true;}
       if(this.pic_step == 64) return;
       else if(this.pic_step == 65){this.dialogShowed = false;}
       else if(this.pic_step == 66){this.dialogShowed = true;}
+      if(this.pic_step == 69) return;
       else if(this.pic_step == 70){this.dialogShowed = false;}
       else if(this.pic_step == 71){this.dialogShowed = true;}
-      else if(this.pic_step == 75){this.dialogShowed = false;}
-      else if(this.pic_step == 76){this.dialogShowed = true;}
-      if(this.pic_step == 79) return;
-      else if(this.pic_step == 80){
-        this.dialogShowed = false;
-        const _this = this;
-        setTimeout(function(){
-          _this.goFinish()
-        },1000);
-        this.showDonePopup = true;
+      if(this.pic_step == 74) return;
+      else if(this.pic_step == 75){
+        this.goFinish()
         return;
       }
       // if(this.pic_step == 0){  }
@@ -191,20 +170,21 @@ export default {
     },
     dialogSrc(){
       // console.log(this.pic_step);
-      if(this.pic_step > 0 && this.pic_step <= 5){ return "http://pic.deaso40.com/ljhy/3基础教程/1/对话1.png"; }
-      else if(this.pic_step > 5 && this.pic_step <= 25){ return "http://pic.deaso40.com/ljhy/3基础教程/1/对话2.png"; }
-      else if(this.pic_step > 25 && this.pic_step <= 30){ return "http://pic.deaso40.com/ljhy/3基础教程/1/对话3.png"; }
-      else if(this.pic_step > 30 && this.pic_step <= 35){ return "http://pic.deaso40.com/ljhy/3基础教程/1/对话4.png"; }
-      else if(this.pic_step > 35 && this.pic_step <= 40){ return "http://pic.deaso40.com/ljhy/3基础教程/2/对话5.png"; }
-      else if(this.pic_step > 40 && this.pic_step <= 45){ return "http://pic.deaso40.com/ljhy/3基础教程/2/对话6.png"; }
-      else if(this.pic_step > 45 && this.pic_step <= 50){ return "http://pic.deaso40.com/ljhy/3基础教程/2/对话7.png"; }
-      else if(this.pic_step > 50 && this.pic_step <= 55){ return "http://pic.deaso40.com/ljhy/3基础教程/2/对话8.png"; }
-      else if(this.pic_step > 55 && this.pic_step <= 60){ return "http://pic.deaso40.com/ljhy/3基础教程/2/对话9.png"; }
-      else if(this.pic_step > 60 && this.pic_step <= 65){ return "http://pic.deaso40.com/ljhy/3基础教程/2/对话9.png"; }
-      else if(this.pic_step > 65 && this.pic_step <= 70){ return "http://pic.deaso40.com/ljhy/3基础教程/2/对话10.png"; }
-      else if(this.pic_step > 70 && this.pic_step <= 75){ return "http://pic.deaso40.com/ljhy/3基础教程/2/对话11.png"; }
-      else if(this.pic_step > 75 && this.pic_step <= 80){ return "http://pic.deaso40.com/ljhy/3基础教程/2/对话12.png"; }
-      else if(this.pic_step > 80 && this.pic_step <= 85){ return "http://pic.deaso40.com/ljhy/3基础教程/2/对话13.png"; }
+      if(this.pic_step > 0 && this.pic_step <= 5){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话1.png"; }
+      else if(this.pic_step > 5 && this.pic_step <= 10){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话2.png"; }
+      else if(this.pic_step > 10 && this.pic_step <= 15){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话3.png"; }
+      else if(this.pic_step > 15 && this.pic_step <= 20){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话4.png"; }
+      else if(this.pic_step > 20 && this.pic_step <= 25){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话5.png"; }
+      else if(this.pic_step > 25 && this.pic_step <= 30){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话6.png"; }
+      else if(this.pic_step > 30 && this.pic_step <= 35){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话7.png"; }
+      else if(this.pic_step > 35 && this.pic_step <= 40){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话8.png"; }
+      else if(this.pic_step > 40 && this.pic_step <= 45){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话9.png"; }
+      else if(this.pic_step > 45 && this.pic_step <= 50){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话10.png"; }
+      else if(this.pic_step > 50 && this.pic_step <= 55){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话11.png"; }
+      else if(this.pic_step > 55 && this.pic_step <= 60){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话12.png"; }
+      else if(this.pic_step > 60 && this.pic_step <= 65){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话13.png"; }
+      else if(this.pic_step > 65 && this.pic_step <= 70){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话14.png"; }
+      else if(this.pic_step > 70 && this.pic_step <= 75){ return "http://pic.deaso40.com/ljhy/9清明/1进阶教程/对话15.png"; }
     },
     startTimer () {
     if (this.seconds >= 59) {
@@ -223,7 +203,7 @@ export default {
       this.$router.push('/title');
     },
     goStage(){
-      this.$router.push('/stages');
+      this.$router.push('/game/4');
     },
     goFinish(){
       var allstars = 0;
@@ -232,7 +212,7 @@ export default {
       }
       this.$store.commit('setFinishTime', this.timetext);
       this.$store.commit('setGameStars', allstars);
-      this.$router.push('/teachfinish1');
+      this.$router.push('/teachfinish2');
     },
     moveActiveCell: function(direction) {
       this.$refs.gameField.moveActiveCell(direction);
@@ -270,7 +250,7 @@ export default {
     }
   },
   async mounted() {
-    await this.loadGame(24);
+    await this.loadGame(25);
     this.timer = setInterval(this.startTimer, 1000);
     this.nextpic();
   },
@@ -346,7 +326,7 @@ export default {
   position: absolute;
   width: 128px;
   height: auto;
-  bottom: 42px;
+  bottom: 6px;
   left: 0px;
 }
 .finish{
@@ -501,56 +481,40 @@ export default {
     position: fixed;
     width: 320px;
     height: auto;
-    top: 170px;
+    top: 335px;
     left: 60px;
     z-index: 120;
   }
-  &-hand1{
-    position: fixed;
-    width: 100px;
-    height: auto;
-    top: 192px;
-    left: 86px;
-    z-index: 120;
-  }
   &-yellow2{
-    position: fixed;
-    width: 320px;
+    position: absolute;
+    width: 84px;
     height: auto;
-    top: 225px;
-    left: 34px;
+    top: 167px;
+    left: 67px;
     z-index: 120;
   }
   &-yellow3{
-    position: fixed;
+    position: absolute;
+    width: 84px;
+    height: auto;
+    top: 167px;
+    left: 178px;
+    z-index: 120;
+  }
+  &-yellow4{
+    position: absolute;
     width: 320px;
     height: auto;
-    top: 280px;
-    left: 86px;
-    z-index: 120;
-  }
-  &-yellow41{
-    position: fixed;
-    width: 70px;
-    height: auto;
-    top: 335px;
-    left: 76px;
-    z-index: 120;
-  }
-  &-yellow42{
-    position: fixed;
-    width: 200px;
-    height: auto;
-    top: 335px;
-    left: 174px;
+    top: 282px;
+    left: 60px;
     z-index: 120;
   }
   &-yellow5{
     position: absolute;
-    width: 84px;
+    width: 99px;
     height: auto;
-    top: 166px;
-    left: 178px;
+    top: 159px;
+    left: 116px;
     z-index: 120;
   }
 }
