@@ -1,7 +1,7 @@
 <template>
   <div id="game" :class="{'hasKeyboard': gameMode === variables.GAME_MODE_KEYBOARD}">
     <img class="game_background" src="http://pic.deaso40.com/ljhy/3基础教程/1/背景.png" />
-    <img class="modal-back" v-show="!nobigclick" style="opacity: 0" @click="clickcontinue" src="http://pic.deaso40.com/ljhy/3基础教程/1/背景.png" />
+    <img class="bigclick" v-show="!nobigclick" style="opacity: 0" @click="clickcontinue" src="http://pic.deaso40.com/ljhy/3基础教程/1/背景.png" />
     <img class="game_goback" @click="goTitle" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
     <img class="game_skip" @click="goStage" src="http://pic.deaso40.com/ljhy/3基础教程/1/跳过.png" />
     <transition name="fade">
@@ -148,8 +148,8 @@ export default {
     clickcontinue(){
       console.log(this.pic_step);
       const _this = this;
-      if(this.pic_step == 1){ this.pic_step += 3; this.nextpic();}
-      else if(this.pic_step == 6){ this.pic_step += 3; this.nextpic(); setTimeout(function(){ _this.nextpic()},1000)}
+      if(this.pic_step == 1){ this.pic_step += 3; this.nextpic(); setTimeout(function(){ _this.pic_step += 4; _this.nextpic()},4000)}
+      // else if(this.pic_step == 6){ this.pic_step += 3; this.nextpic(); setTimeout(function(){ _this.nextpic()},1000)}
       else if(this.pic_step == 11){ this.pic_step += 3; this.nextpic(); setTimeout(function(){ _this.nextpic()},1000)}
       else if(this.pic_step == 16){ this.pic_step += 3; this.nextpic(); setTimeout(function(){ _this.nextpic()},1000)}
       else if(this.pic_step == 21){ this.pic_step += 3; this.nextpic();}
@@ -593,5 +593,13 @@ export default {
   bottom: 40px;
   left: 90px;
   z-index: 105;
+}
+.bigclick{
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  background-color: #ffffff;
 }
 </style>

@@ -181,14 +181,14 @@ export default {
   position: absolute;
   width: 200px;
   height: auto;
-  top: 366px;
+  top: 346px;
   left: calc(50vw - 100px);
 }
 .titlebtn2{
   position: absolute;
   width: 200px;
   height: auto;
-  top: 438px;
+  top: 418px;
   left: calc(50vw - 100px);
 }
 .option{
@@ -202,14 +202,14 @@ export default {
   position: absolute;
   width: 70px;
   height: auto;
-  bottom: 16px;
+  bottom: 6px;
   left: 16px;
 }
 .shop{
   position: absolute;
   width: 70px;
   height: auto;
-  bottom: 16px;
+  bottom: 6px;
   right: 16px;
 }
 .cha{

@@ -213,7 +213,7 @@ export default {
     position: fixed;
     font-size: 18px;
     top: 33px;
-    right: 28px;
+    right: 24px;
   }
 }
 .flyin1-enter, .flyin1-leave-to {
