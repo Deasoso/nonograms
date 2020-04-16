@@ -29,6 +29,10 @@
         <img class="modal-start" @click="enter(selectedStage)" src="http://pic.deaso40.com/ljhy/5立春/开始游戏.png" />
       </div>
     </transition>
+    <img class="stage_girl" v-show="gamesState[0] == 0" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
+    <transition name="fade">
+      <img v-show="dialogShowed" class="stage_dialog" :src="dialogUrl" />
+    </transition>
   </div>
 </template>
 <script>
@@ -46,6 +50,8 @@ export default {
       modalshowed: false,
       selectedStage: 0,
       stars: 0,
+      dialogUrl: 'http://pic.deaso40.com/ljhy/4地图/对话1.png',
+      dialogShowed: false
     }
   },
   computed: {
@@ -61,6 +67,17 @@ export default {
     this.stars = 0;
     for(var index in this.gamesState){
       if(this.gamesState[index] === 2) this.stars += 3;
+    }
+    if(this.gamesState[0] == 0){
+      const _this = this;
+      _this.dialogShowed = true;
+      setTimeout(function(){
+        _this.dialogShowed = false;
+      },5000);
+      setTimeout(function(){
+        _this.dialogUrl = "http://pic.deaso40.com/ljhy/4地图/对话2.png";
+        _this.dialogShowed = true;
+      },6000);
     }
   },
   methods:{
@@ -156,7 +173,12 @@ export default {
       return style;
     },
     enter(index){
-      this.$router.push('/game/' + index);
+      if(index == 4){
+        this.$router.push('/teachgame2');
+      }else{
+        this.$router.push('/game/' + index);
+      }
+      
     }
   }
 }
@@ -238,5 +260,20 @@ export default {
     width: 216px;
     left: calc(50vw - 108px);
   }
+}
+.stage_girl{
+  position: absolute;
+  width: 128px;
+  height: auto;
+  bottom: 0px;
+  left: 0px;
+}
+.stage_dialog{
+  position: fixed;
+  width: 248px;
+  height: auto;
+  top: 536px;
+  left: 92px;
+  z-index: 50;
 }
 </style>

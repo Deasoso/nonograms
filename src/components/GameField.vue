@@ -64,6 +64,9 @@
             <transition name="fade">
               <img v-show="selectedShow(x, y)" :style='selectedStyle(x, y)' src="http://pic.deaso40.com/ljhy/5立春/关卡-针线5x5.png">
             </transition>
+            <transition name="fade">
+              <img v-show="cancelledShow(x, y)" :style='selectedStyle(x, y)' src="http://pic.deaso40.com/ljhy/5立春/关卡-布5x5.png">
+            </transition>
           </div>
         </div>
       </div>
@@ -78,6 +81,12 @@
         <div v-for="(val, index) in gameData['rows'][row-1]" :style="heightTextStyle(row, index)">
           {{val}}
         </div>
+      </div>
+      <div v-show="gameData.id >= 4">
+        <img class="select-bu-small" @click="selected_bu=false" v-show="selected_bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/针线.png" />
+        <img class="select-fangge-small" @click="selected_bu=true" v-show="!selected_bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/方格.png" />
+        <img class="select-bu" v-show="!selected_bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/针线选中.png" />
+        <img class="select-fangge" v-show="selected_bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/方格选中.png" />
       </div>
     </div>
   </div>
@@ -101,6 +110,10 @@ export default {
       required: true,
       default: function () { return {'id': -1, 'rows': [], 'columns': []} }
     },
+    selectedJinnang: {
+      type: Boolean,
+      default: function () { return false; }
+    },
     gameProcess: {
       type: Array,
       default: function () { return []; }
@@ -123,6 +136,7 @@ export default {
       cellsClasses: [],
       game_left: 15,
       game_top: 126,
+      selected_bu: false,
       variables
     };
   },
@@ -245,6 +259,9 @@ export default {
     },
     selectedShow(x, y){
       return this.cellState(x, y) === variables.CELL_FILLED;
+    },
+    cancelledShow(x, y){
+      return this.cellState(x, y) === variables.CELL_CANCELLED;
     },
     widthPicStyle(x){
       return {
@@ -572,12 +589,27 @@ export default {
     toggleCellState(x, y) {
       const currentState = this.cellState(x, y);
       let newState = variables.CELL_EMPTY;
-
-      if (currentState === variables.CELL_EMPTY) {
-        newState = variables.CELL_FILLED;
+      console.log(this.selectedJinnang + ',' + x + ',' + y);
+      if(this.selectedJinnang){
+        console.log(this.gameData.answer)
+        if(this.gameData.answer[x-1][y-1] == 1){
+          newState = variables.CELL_FILLED;
+        }else{
+          newState = variables.CELL_CANCELLED;
+        }
+        this.$emit('useJinnang');
       }else{
-        newState = variables.CELL_EMPTY;
+        if (currentState === variables.CELL_EMPTY) {
+          if(this.selected_bu){
+            newState = variables.CELL_CANCELLED;
+          }else{
+            newState = variables.CELL_FILLED;
+          }
+        }else{
+          newState = variables.CELL_EMPTY;
+        }
       }
+      
 
       this.setCellState(newState, x, y);
     },
@@ -687,5 +719,35 @@ export default {
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .1s ease
+}
+.select{
+  &-bu{
+    position: fixed;
+    width: 92px;
+    height: auto;
+    bottom: 108px;
+    left: 102px;
+    &-small{
+      position: fixed;
+      width: 92px;
+      height: auto;
+      bottom: 108px;
+      left: 92px;
+    }
+  }
+  &-fangge{
+    position: fixed;
+    width: 94px;
+    height: auto;
+    bottom: 104px;
+    left: 162px;
+    &-small{
+      position: fixed;
+      width: 92px;
+      height: auto;
+      bottom: 108px;
+      left: 172px;
+    }
+  }
 }
 </style>

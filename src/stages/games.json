@@ -10,7 +10,8 @@
     "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
     "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
     "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/立春.png",
-    "finish_pic": "http://pic.deaso40.com/ljhy/立春-补充/关卡-立春完成图案.png"
+    "finish_pic": "http://pic.deaso40.com/ljhy/立春-补充/关卡-立春完成图案.png",
+    "answer":[[1,0,1,0,1],[0,1,1,0,1],[1,1,1,1,1],[0,0,1,1,1],[1,1,1,1,1]]
   },
   {
     "id": 1,
@@ -23,7 +24,8 @@
     "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
     "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
     "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/雨水.png",
-    "finish_pic": "http://pic.deaso40.com/ljhy/6雨水/谜底-雨水.png"
+    "finish_pic": "http://pic.deaso40.com/ljhy/6雨水/谜底-雨水.png",
+    "answer":[[0,0,0,1,1],[0,0,1,1,1],[0,1,1,1,1],[0,1,1,1,0],[1,1,1,1,0]]
   },
   {
     "id": 2,
@@ -36,7 +38,8 @@
     "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
     "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
     "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/惊蛰.png",
-    "finish_pic": "http://pic.deaso40.com/ljhy/7惊蛰/谜底-惊蛰.png"
+    "finish_pic": "http://pic.deaso40.com/ljhy/7惊蛰/谜底-惊蛰.png",
+    "answer":[[0,0,0,1,1],[0,0,1,1,1],[0,1,1,1,1],[1,1,1,1,0],[1,1,1,0,0]]
   },
   {
     "id": 3,
@@ -49,7 +52,8 @@
     "game_cells": "http://pic.deaso40.com/ljhy/5立春/关卡-规格.png",
     "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
     "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/春分.png",
-    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-惊蛰复制.png"
+    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-惊蛰复制.png",
+    "answer":[[1,1,1,1,0],[1,1,1,1,0],[1,1,1,1,1],[0,0,1,1,1],[0,0,0,1,1]]
   },
   {
     "id": 4,
@@ -62,7 +66,8 @@
     "game_cells": "http://pic.deaso40.com/ljhy/9清明/2清明/关卡-规格.png",
     "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格6x6.png",
     "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/清明.png",
-    "finish_pic": "http://pic.deaso40.com/ljhy/清明-补充/谜底-清明复制.png"
+    "finish_pic": "http://pic.deaso40.com/ljhy/清明-补充/谜底-清明复制.png",
+    "answer":[[0,1,1,1,1,1],[0,1,0,1,1,1],[1,0,0,0,1,1],[1,1,0,0,0,1],[1,1,1,0,0,0],[1,1,1,1,0,0]]
   },
   {
     "id": 5,

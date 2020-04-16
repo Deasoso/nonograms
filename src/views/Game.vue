@@ -24,7 +24,10 @@
         ref="gameField"
         :gameData="gameData"
         :gameProcess="gameProcess"
+        :selectedJinnang="selectedJinnang"
         :controlledByKeyboard="gameMode === variables.GAME_MODE_KEYBOARD"
+        @useJinnang="useJinnang"
+        @newDialog="newDialog"
       />
     </div>
     <img class="game_goback" @click="backShowed=!backShowed" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
@@ -34,9 +37,16 @@
     </div>
     <img class="game_time" src="http://pic.deaso40.com/ljhy/5立春/关卡-时间.png" />
     <img class="game_girl" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
-    <img class="game_item" src="http://pic.deaso40.com/ljhy/5立春/关卡-锦囊.png" />
+    <img class="game_item" v-show="!selectedJinnang" @click="selectJinnang(true)" src="http://pic.deaso40.com/ljhy/5立春/关卡-锦囊.png" />
+    <img class="game_item" v-show="selectedJinnang" @click="selectJinnang(false)" src="http://pic.deaso40.com/ljhy/5立春/关卡-锦囊选中.png" />
     <div class="game_timetext">
       {{timetext}}
+    </div>
+    <transition name="fade">
+      <img v-show="dialogShowed" class="game_dialog" :src="dialogUrl" />
+    </transition>
+    <div class="game_jinnangtext">
+      {{jinnangTimes}}
     </div>
     <transition name="fade">
       <div v-show="showDonePopup" class="finish-back">
@@ -87,6 +97,7 @@ export default {
       gameMode: variables.GAME_MODE_MOUSE,
       gameProcess: null,
       showDonePopup: false,
+      variables: variables,
       timer: "",
       seconds: 0,
       minutes: 0,
@@ -94,7 +105,10 @@ export default {
       backShowed: false,
       bgmOpen: true,
       seOpen: true,
-      variables: variables
+      selectedJinnang: false,
+      jinnangTimes: 3,
+      dialogUrl: 'http://pic.deaso40.com/ljhy/5立春/关卡-对话1.png',
+      dialogShowed: true,
     };
   },
   computed: {
@@ -118,6 +132,36 @@ export default {
     }
   },
   methods: {
+    selectJinnang(index){
+      if(index == true){
+        if(this.jinnangTimes == 3 && this.gameId == 0){
+          this.newDialog('http://pic.deaso40.com/ljhy/5立春/关卡-对话3.png');
+        }
+        if(this.jinnangTimes <= 0){
+          this.newDialog('http://pic.deaso40.com/ljhy/5立春/关卡-对话5.png');
+        }else{
+          this.selectedJinnang = true;
+        }
+      }else{
+        this.selectedJinnang = false;
+      }      
+    },
+    useJinnang(){
+      this.jinnangTimes -= 1;
+      this.selectedJinnang = false;
+      console.log(this.jinnangTimes + ',' + this.gameId)
+      if(this.jinnangTimes == 2 && this.gameId == 0){
+        this.newDialog('http://pic.deaso40.com/ljhy/5立春/关卡-对话4.png');
+      }
+    },
+    newDialog(url){
+      const _this = this;
+      this.dialogShowed = false;
+      setTimeout(function(){
+        _this.dialogUrl = url;
+        _this.dialogShowed = true;
+      },1000);
+    },
     startTimer () {
     if (this.seconds >= 59) {
       if (this.minutes >= 59) {
@@ -237,6 +281,16 @@ export default {
   height: auto;
   right: 22px;
   top: 88px;
+  font-size: 12px;
+  color: #ffffff;
+  text-align:right;
+}
+.game_jinnangtext{
+  position: absolute;
+  width: 44px;
+  height: auto;
+  right: 20px;
+  bottom: 53px;
   font-size: 12px;
   color: #ffffff;
   text-align:right;
@@ -363,5 +417,12 @@ export default {
     left: calc(50vw + 40px);
     z-index: 125;
   }
+}
+.game_dialog{
+  position: absolute;
+  width: 240px;
+  height: auto;
+  top: 548px;
+  left: 84px;
 }
 </style>
