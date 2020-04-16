@@ -156,11 +156,6 @@ export default {
       else if(this.pic_step == 26){ this.pic_step += 3; this.nextpic();}
       else if(this.pic_step == 31){ this.pic_step += 3; this.nextpic();}
       else if(this.pic_step == 36){ this.pic_step += 3; this.nextpic();}
-      else if(this.pic_step == 41){ this.pic_step += 2; this.nextpic();}
-      else if(this.pic_step == 46){ this.pic_step += 2; this.nextpic();}
-      else if(this.pic_step == 51){ this.pic_step += 2; this.nextpic();}
-      else if(this.pic_step == 56){ this.pic_step += 2; this.nextpic();}
-      else if(this.pic_step == 61){ this.pic_step += 2; this.nextpic();}
       else if(this.pic_step == 66){ this.pic_step += 3; this.nextpic();}
       else if(this.pic_step == 71){ this.pic_step += 3; this.nextpic();}
       else if(this.pic_step == 76){ this.pic_step += 3; this.nextpic();}
@@ -181,25 +176,25 @@ export default {
       else if(this.pic_step == 35){this.dialogShowed = false;}
       else if(this.pic_step == 36){this.dialogShowed = true;}
       else if(this.pic_step == 40){this.dialogShowed = false;}
-      else if(this.pic_step == 41){this.dialogShowed = true;}
+      else if(this.pic_step == 41){this.pic_step += 3; this.dialogShowed = true;}
       if(this.pic_step == 44){this.nobigclick = true; return;}
       else if(this.pic_step == 45){this.dialogShowed = false;}
-      else if(this.pic_step == 46){this.dialogShowed = true;}
+      else if(this.pic_step == 46){this.pic_step += 3; this.dialogShowed = true;}
       if(this.pic_step == 49){this.nobigclick = true; return;}
       else if(this.pic_step == 50){this.dialogShowed = false;}
-      else if(this.pic_step == 51){this.dialogShowed = true;}
+      else if(this.pic_step == 51){this.pic_step += 3; this.dialogShowed = true;}
       if(this.pic_step == 54){this.nobigclick = true; return;}
       else if(this.pic_step == 55){this.dialogShowed = false;}
       else if(this.pic_step == 56){this.pic_step += 5; this.dialogShowed = true;}
       else if(this.pic_step == 60){this.dialogShowed = false;}
-      else if(this.pic_step == 61){this.dialogShowed = true;}
+      if(this.pic_step == 61){this.pic_step += 3; this.dialogShowed = true;}
       if(this.pic_step == 64){this.nobigclick = true; return;}
       else if(this.pic_step == 65){this.dialogShowed = false;}
       else if(this.pic_step == 66){this.dialogShowed = true;}
       else if(this.pic_step == 70){this.dialogShowed = false;}
       else if(this.pic_step == 71){this.dialogShowed = true;}
       else if(this.pic_step == 75){this.dialogShowed = false;}
-      else if(this.pic_step == 76){this.dialogShowed = true;}
+      else if(this.pic_step == 76){this.pic_step += 3; this.dialogShowed = true;}
       if(this.pic_step == 79){this.nobigclick = true; return;}
       else if(this.pic_step == 80){
         this.dialogShowed = false;

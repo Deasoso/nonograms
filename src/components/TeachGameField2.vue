@@ -206,6 +206,7 @@ export default {
   methods: {
     update_step(){
       // console.log(this.filledCells);
+      console.log(this.pic_step);
       if(this.filledCells[2][4] && 
         this.filledCells[3][4] && 
         this.filledCells[4][4] && 
