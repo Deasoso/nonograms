@@ -1,23 +1,23 @@
 <template>
   <div id="game" :class="{'hasKeyboard': gameMode === variables.GAME_MODE_KEYBOARD}">
     <img class="game_background" src="http://pic.deaso40.com/ljhy/3基础教程/1/背景.png" />
+    <img class="modal-back" v-show="!nobigclick" style="opacity: 0" @click="clickcontinue" src="http://pic.deaso40.com/ljhy/3基础教程/1/背景.png" />
     <img class="game_goback" @click="goTitle" src="http://pic.deaso40.com/ljhy/4地图/返回.png" />
     <img class="game_skip" @click="goStage" src="http://pic.deaso40.com/ljhy/3基础教程/1/跳过.png" />
-
     <!-- <transition name="fade"> -->
-      <div v-show="pic_step < 15 && pic_step > 10">
+      <div v-show="pic_step <= 19 && pic_step > 10">
         <img class="finishing-yellow1" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/格子2.png" />
       </div>
-      <div v-show="pic_step < 29 && pic_step > 25">
+      <div v-show="pic_step <= 29 && pic_step > 25">
         <img class="finishing-yellow2" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/格子3.png" />
       </div>
-      <div v-show="pic_step < 34 && pic_step > 30">
+      <div v-show="pic_step <= 34 && pic_step > 30">
         <img class="finishing-yellow3" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/格子3.png" />
       </div>
-      <div v-show="pic_step < 44 && pic_step > 40">
+      <div v-show="pic_step <= 44 && pic_step > 40">
         <img class="finishing-yellow4" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/格子4.png" />
       </div>
-      <div v-show="pic_step < 49 && pic_step > 45">
+      <div v-show="pic_step <= 49 && pic_step > 45">
         <img class="finishing-yellow5" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/格子5.png" />
       </div>
     <!-- </transition> -->
@@ -95,6 +95,7 @@ export default {
       variables: variables,
       pic_step: 0,
       dialog_step: 0,
+      nobigclick: false
     };
   },
   computed: {
@@ -118,10 +119,30 @@ export default {
     }
   },
   methods: {
+    clickcontinue(){
+      console.log(this.pic_step);
+      const _this = this;
+      if(this.pic_step == 1){ this.pic_step += 3; this.nextpic();}
+      else if(this.pic_step == 6){ this.pic_step += 3; this.nextpic();}
+      else if(this.pic_step == 11){ this.pic_step += 3; this.nextpic();}
+      else if(this.pic_step == 16){ this.pic_step += 2; this.nextpic();}
+      else if(this.pic_step == 21){ this.pic_step += 3; this.nextpic();}
+      else if(this.pic_step == 26){ this.pic_step += 2; this.nextpic();}
+      else if(this.pic_step == 31){ this.pic_step += 2; this.nextpic();}
+      else if(this.pic_step == 36){ this.pic_step += 3; this.nextpic();}
+      else if(this.pic_step == 41){ this.pic_step += 2; this.nextpic();}
+      else if(this.pic_step == 46){ this.pic_step += 2; this.nextpic();}
+      else if(this.pic_step == 51){ this.pic_step += 3; this.nextpic();}
+      else if(this.pic_step == 56){ this.pic_step += 3; this.nextpic();}
+      else if(this.pic_step == 61){ this.pic_step += 2; this.nextpic();}
+      else if(this.pic_step == 66){ this.pic_step += 2; this.nextpic();}
+      else if(this.pic_step == 71){ this.pic_step += 2; this.nextpic();}
+    },
     nextpic(){
       const _this = this;
       this.pic_step += 1;
       this.dialog_step += 1;
+      this.nobigclick = false;
       // console.log('% ' + this.pic_step)
       if(this.pic_step == 1){ this.dialogShowed = true;}
       else if(this.pic_step == 5){this.dialogShowed = false;}
@@ -130,43 +151,43 @@ export default {
       else if(this.pic_step == 11){this.dialogShowed = true;}
       else if(this.pic_step == 15){this.dialogShowed = false;}
       else if(this.pic_step == 16){this.dialogShowed = true;}
-      if(this.pic_step == 19) return;
+      if(this.pic_step == 19){this.nobigclick = true; return;}
       else if(this.pic_step == 20){this.dialogShowed = false;}
       else if(this.pic_step == 21){this.dialogShowed = true;}
       else if(this.pic_step == 25){this.dialogShowed = false;}
       else if(this.pic_step == 26){this.dialogShowed = true;}
-      if(this.pic_step == 29) return;
+      if(this.pic_step == 29){this.nobigclick = true; return;}
       else if(this.pic_step == 30){this.dialogShowed = false;}
       else if(this.pic_step == 31){this.dialogShowed = true;}
-      if(this.pic_step == 34) return;
+      if(this.pic_step == 34){this.nobigclick = true; return;}
       else if(this.pic_step == 35){this.dialogShowed = false;}
       else if(this.pic_step == 36){this.dialogShowed = true;}
       else if(this.pic_step == 40){this.dialogShowed = false;}
       else if(this.pic_step == 41){this.dialogShowed = true;}
-      if(this.pic_step == 44) return;
+      if(this.pic_step == 44){this.nobigclick = true; return;}
       else if(this.pic_step == 45){this.dialogShowed = false;}
       else if(this.pic_step == 46){this.dialogShowed = true;}
-      if(this.pic_step == 49) return;
+      if(this.pic_step == 49){this.nobigclick = true; return;}
       else if(this.pic_step == 50){this.dialogShowed = false;}
       else if(this.pic_step == 51){this.dialogShowed = true;}
       else if(this.pic_step == 55){this.dialogShowed = false;}
       else if(this.pic_step == 56){this.dialogShowed = true;}
       else if(this.pic_step == 60){this.dialogShowed = false;}
       else if(this.pic_step == 61){this.dialogShowed = true;}
-      if(this.pic_step == 64) return;
+      if(this.pic_step == 64){this.nobigclick = true; return;}
       else if(this.pic_step == 65){this.dialogShowed = false;}
       else if(this.pic_step == 66){this.dialogShowed = true;}
-      if(this.pic_step == 69) return;
+      if(this.pic_step == 69){this.nobigclick = true; return;}
       else if(this.pic_step == 70){this.dialogShowed = false;}
       else if(this.pic_step == 71){this.dialogShowed = true;}
-      if(this.pic_step == 74) return;
+      if(this.pic_step == 74){this.nobigclick = true; return;}
       else if(this.pic_step == 75){
         this.goFinish()
         return;
       }
       // if(this.pic_step == 0){  }
       // else if(this.pic_step == 1){ setTimeout(function(){ _this.nextpic()},1000); }
-      setTimeout(function(){ _this.nextpic()},1000);
+      if(this.dialogShowed == false) setTimeout(function(){ _this.nextpic()},1000);
     },
     dialogSrc(){
       // console.log(this.pic_step);
@@ -328,6 +349,7 @@ export default {
   height: auto;
   bottom: 6px;
   left: 0px;
+  z-index: 110;
 }
 .finish{
   &-back{
@@ -483,6 +505,7 @@ export default {
     height: auto;
     top: 335px;
     left: 60px;
+    pointer-events: none;
     z-index: 120;
   }
   &-yellow2{
@@ -491,6 +514,7 @@ export default {
     height: auto;
     top: 167px;
     left: 67px;
+    pointer-events: none;
     z-index: 120;
   }
   &-yellow3{
@@ -499,6 +523,7 @@ export default {
     height: auto;
     top: 167px;
     left: 178px;
+    pointer-events: none;
     z-index: 120;
   }
   &-yellow4{
@@ -507,6 +532,7 @@ export default {
     height: auto;
     top: 282px;
     left: 60px;
+    pointer-events: none;
     z-index: 120;
   }
   &-yellow5{
@@ -515,6 +541,7 @@ export default {
     height: auto;
     top: 159px;
     left: 116px;
+    pointer-events: none;
     z-index: 120;
   }
 }
@@ -522,8 +549,8 @@ export default {
   position: fixed;
   width: 248px;
   height: auto;
-  top: 520px;
+  bottom: 40px;
   left: 90px;
-  z-index: 50;
+  z-index: 105;
 }
 </style>

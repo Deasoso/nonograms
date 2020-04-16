@@ -308,6 +308,7 @@ export default {
   height: auto;
   bottom: 0px;
   left: 0px;
+  z-index: 110;
 }
 .finish{
   &-back{
@@ -422,7 +423,8 @@ export default {
   position: absolute;
   width: 240px;
   height: auto;
-  top: 548px;
+  bottom: 38px;
   left: 84px;
+  z-index: 105;
 }
 </style>

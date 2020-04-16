@@ -176,6 +176,7 @@ export default {
   height: auto;
   bottom: 56px;
   left: 20px;
+  z-index: 110;
 }
 .finish_dialog{
   position: absolute;
@@ -183,6 +184,7 @@ export default {
   height: auto;
   bottom: 108px;
   left: 94px;
+  z-index: 105;
 }
 .finish_next{
   position: absolute;

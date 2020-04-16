@@ -817,12 +817,14 @@ $color-vue-red: #f66;
     height: auto;
     bottom: 132px;
     left: 102px;
+    z-index: 121;
     &-small{
       position: fixed;
       width: 92px;
       height: auto;
       bottom: 132px;
       left: 92px;
+      z-index: 121;
     }
   }
   &-fangge{
@@ -831,12 +833,14 @@ $color-vue-red: #f66;
     height: auto;
     bottom: 128px;
     left: 162px;
+    z-index: 121;
     &-small{
       position: fixed;
       width: 92px;
       height: auto;
       bottom: 132px;
       left: 172px;
+      z-index: 121;
     }
   }
 }
@@ -846,7 +850,7 @@ $color-vue-red: #f66;
   height: auto;
   bottom: 102px;
   left: 192px;
-  z-index: 120;
+  z-index: 130;
 }
 .lefthand{
   position: fixed;
@@ -854,6 +858,6 @@ $color-vue-red: #f66;
   height: auto;
   bottom: 102px;
   left: 112px;
-  z-index: 120;
+  z-index: 130;
 }
 </style>

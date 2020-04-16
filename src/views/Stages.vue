@@ -29,7 +29,7 @@
         <img class="modal-start" @click="enter(selectedStage)" src="http://pic.deaso40.com/ljhy/5立春/开始游戏.png" />
       </div>
     </transition>
-    <img class="stage_girl" v-show="gamesState[0] == 0" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
+    <img class="stage_girl" v-show="gamesState[0] != 1 && gamesState[0] != 2" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
     <transition name="fade">
       <img v-show="dialogShowed" class="stage_dialog" :src="dialogUrl" />
     </transition>
@@ -68,7 +68,7 @@ export default {
     for(var index in this.gamesState){
       if(this.gamesState[index] === 2) this.stars += 3;
     }
-    if(this.gamesState[0] == 0){
+    if(this.gamesState[0] != 1 && this.gamesState[0] != 2){
       const _this = this;
       _this.dialogShowed = true;
       setTimeout(function(){
@@ -110,14 +110,15 @@ export default {
         this.addstage(addxy);
         if(this.gamesState[index] === 2){
           this.finishList.push({x: mapxys[index].x - 16, 
-            y: (mapxys[index].y + (40 * document.getElementById('app').clientHeight / 568 )) * document.getElementById('app').clientHeight / 568, 
+            y: (mapxys[index].y * document.getElementById('app').clientHeight / 568) + 50, 
             src: mapxys[index].finish_pic,
             width: 90});
         }
       }
       if(this.preStage >= 0 && this.preStage < this.stageList.length){
+        console.log(this.stageList[this.preStage].y);
         this.finishList.push({x: this.stageList[this.preStage].x + 10, 
-          y: (this.stageList[this.preStage].y - (72 * document.getElementById('app').clientHeight / 568 )) * document.getElementById('app').clientHeight / 568, 
+          y: (mapxys[this.preStage].y * document.getElementById('app').clientHeight / 568) - 20, 
           src: 'http://pic.deaso40.com/ljhy/4地图/24关按钮/地图_正在完成定位.png',
           width: 30});
       }
@@ -267,13 +268,14 @@ export default {
   height: auto;
   bottom: 0px;
   left: 0px;
+  z-index: 110;
 }
 .stage_dialog{
   position: fixed;
   width: 248px;
   height: auto;
-  top: 536px;
+  bottom: 56px;
   left: 92px;
-  z-index: 50;
+  z-index: 105;
 }
 </style>
