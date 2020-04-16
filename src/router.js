@@ -7,6 +7,8 @@ import Story from './views/Story';
 import Title from './views/Title';
 import Stages from './views/Stages';
 import Finish from './views/Finish';
+import TeachGame1 from './views/TeachGame1';
+import TeachFinish1 from './views/TeachFinish1';
 
 Vue.use(Router);
 
@@ -35,9 +37,19 @@ export default new Router({
       component: Stages
     },
     {
+      path: '/teachgame1',
+      name: 'teachgame1',
+      component: TeachGame1
+    },
+    {
       path: '/finish/:id',
       name: 'finish',
       component: Finish
+    },
+    {
+      path: '/teachfinish1',
+      name: 'teachfinish1',
+      component: TeachFinish1
     },
     {
       path: '/about',

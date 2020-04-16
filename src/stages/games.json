@@ -189,6 +189,12 @@
     "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格5x5.png",
     "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/春分.png",
     "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-惊蛰复制.png"
+  },
+  {
+    "id": 24,
+    "name": "玩法介绍",
+    "columns": [[2,1],[3],[5],[4],[1,2]],
+    "rows": [[5],[4],[4],[1,3],[1]]
   }
   
 ]

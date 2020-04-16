@@ -46,11 +46,15 @@
   </div>
 </template>
 <script>
+import {mapState} from 'vuex';
 export default {
   data: function () {
     return {
       flyin1: false
     }
+  },
+  computed: {
+    ...mapState(['gamesState'])
   },
   mounted(){
     this.flyin1 = true;
@@ -59,7 +63,12 @@ export default {
   },
   methods:{
     start(){
-      this.$router.push('/stages');
+      console.log(this.gamesState);
+      // if(this.gamesState[0] == 1 || this.gamesState[0] == 2){
+        this.$router.push('/teachgame1');
+      // }else{
+        // this.$router.push('/stages');
+      // }
     }
   }
 }

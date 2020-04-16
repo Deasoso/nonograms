@@ -93,7 +93,6 @@ export default {
   methods:{
     nextpic(force){
       const _this = this;
-      console.log('next ' + this.step);
       if(!force && !this.canclick) return;
       if(this.step == 0){
         this.step += 1;

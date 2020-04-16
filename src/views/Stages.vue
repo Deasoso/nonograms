@@ -78,7 +78,7 @@ export default {
       }
     },
     showmodal(index) {
-      console.log(index);
+      // console.log(index);
       this.selectedStage = index;
       this.modalshowed = !this.modalshowed;
     },
