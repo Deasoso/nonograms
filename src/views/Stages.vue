@@ -4,7 +4,12 @@
     <img class="bigclick" v-show="!nobigclick" style="opacity: 0" @click="clickcontinue" src="http://pic.deaso40.com/ljhy/3基础教程/1/背景.png" />
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_地图.png" />
     <div v-for="item, index in extraList">
-      <img class="stagesback" :src="item.src" />
+      <div v-if="item.src == 'http://pic.deaso40.com/ljhy/通关后地图新增图案-修改/地图_图形6_人.png'">
+        <img class="stagesbackhigh" :src="item.src" />
+      </div>
+      <div v-else>
+        <img class="stagesback" :src="item.src" />
+      </div>
     </div>
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_山脉.png" />
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_小山.png" />
@@ -203,6 +208,16 @@ export default {
   left: 0;
   right: 0;
   z-index: -100;
+}
+.stagesbackhigh{
+  width: 2560px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -90;
 }
 .back{
   position: fixed;

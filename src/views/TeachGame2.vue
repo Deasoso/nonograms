@@ -93,7 +93,7 @@ export default {
       seOpen: true,
       dialogShowed: false,
       variables: variables,
-      pic_step: 55,
+      pic_step: 0,
       dialog_step: 0,
       nobigclick: false,
     };
