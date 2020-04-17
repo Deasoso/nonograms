@@ -26,10 +26,16 @@
         <img v-show="pic_step < 64 && pic_step > 55" class="select-bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/针线选中.png" />
       </transition>
       <transition name="fade">
-        <img v-show="pic_step < 64 && pic_step > 55" class="righthand" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
+        <img v-show="pic_step < 57 && pic_step > 55" class="righthand" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
+      </transition>
+      <transition name="fade">
+        <img class="hand2" v-show="pic_step < 64 && pic_step > 57" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
       </transition>
       <transition name="fade">
         <img v-show="pic_step < 69 && pic_step > 65" class="lefthand" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
+      </transition>
+      <transition name="fade">
+        <img class="hand3" v-show="pic_step < 74 && pic_step > 69" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
       </transition>
       <div v-show="pic_step > 63">
         <img class="select-bu-small" @click="selected_bu=false" v-show="selected_bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/针线.png" />
@@ -248,10 +254,7 @@ export default {
           this.$emit('nextpic');
       }
       if(this.filledCells[4][5] &&
-        this.pic_step == 69){
-          this.$emit('nextpic');
-      }
-      if(this.filledCells[1][1] &&
+        this.filledCells[1][1] &&
         this.filledCells[3][5] &&
         this.pic_step == 74){
           this.$emit('nextpic');
@@ -710,10 +713,10 @@ export default {
         this.updateFilledState(x, y);
       }
 
-      this.$store.dispatch(ActionsTypes.SET_GAME_STATE, {
-        id: this.$props.gameData['id'],
-        state: this.isFinished ? variables.GAME_IS_FINISHED : variables.GAME_IN_PROCESS
-      });
+      // this.$store.dispatch(ActionsTypes.SET_GAME_STATE, {
+      //   id: this.$props.gameData['id'],
+      //   state: this.isFinished ? variables.GAME_IS_FINISHED : variables.GAME_IN_PROCESS
+      // });
 
       this.$store.dispatch(ActionsTypes.SAVE_GAME_PROCESS, {
         id: this.$props.gameData['id'],
@@ -816,14 +819,14 @@ $color-vue-red: #f66;
     position: fixed;
     width: 92px;
     height: auto;
-    bottom: 132px;
+    top: 444px;
     left: 102px;
     z-index: 121;
     &-small{
       position: fixed;
       width: 92px;
       height: auto;
-      bottom: 132px;
+      top: 444px;
       left: 92px;
       z-index: 121;
     }
@@ -832,14 +835,14 @@ $color-vue-red: #f66;
     position: fixed;
     width: 94px;
     height: auto;
-    bottom: 128px;
+    top: 448px;
     left: 162px;
     z-index: 121;
     &-small{
       position: fixed;
       width: 92px;
       height: auto;
-      bottom: 132px;
+      top: 444px;
       left: 172px;
       z-index: 121;
     }
@@ -849,16 +852,36 @@ $color-vue-red: #f66;
   position: fixed;
   width: 100px;
   height: auto;
-  bottom: 102px;
+  top: 466px;
   left: 192px;
+  pointer-events: none;
   z-index: 130;
 }
 .lefthand{
   position: fixed;
   width: 100px;
   height: auto;
-  bottom: 102px;
+  top: 466px;
   left: 112px;
+  pointer-events: none;
+  z-index: 130;
+}
+.hand2{
+  position: fixed;
+  width: 100px;
+  height: auto;
+  top: 236px;
+  left: 142px;
+  pointer-events: none;
+  z-index: 130;
+}
+.hand3{
+  position: fixed;
+  width: 100px;
+  height: auto;
+  top: 402px;
+  left: 248px;
+  pointer-events: none;
   z-index: 130;
 }
 </style>

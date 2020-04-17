@@ -1,6 +1,7 @@
 <template>
   <div class="loader">
     <img ref="stages" class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_天空.png" />
+    <img class="bigclick" v-show="!nobigclick" style="opacity: 0" @click="clickcontinue" src="http://pic.deaso40.com/ljhy/3基础教程/1/背景.png" />
     <img class="stagesback" src="http://pic.deaso40.com/ljhy/4地图/地图_地图.png" />
     <div v-for="item, index in extraList">
       <img class="stagesback" :src="item.src" />
@@ -29,7 +30,7 @@
         <img class="modal-start" @click="enter(selectedStage)" src="http://pic.deaso40.com/ljhy/5立春/开始游戏.png" />
       </div>
     </transition>
-    <img class="stage_girl" v-show="gamesState[0] != 1 && gamesState[0] != 2" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
+    <img class="stage_girl" v-show="gamesState[0] != 2 && gamesState[0] != 2" src="http://pic.deaso40.com/ljhy/关卡背景补充/人物.png" />
     <transition name="fade">
       <img v-show="dialogShowed" class="stage_dialog" :src="dialogUrl" />
     </transition>
@@ -51,7 +52,8 @@ export default {
       selectedStage: 0,
       stars: 0,
       dialogUrl: 'http://pic.deaso40.com/ljhy/4地图/对话1.png',
-      dialogShowed: false
+      dialogShowed: false,
+      nobigclick: false,
     }
   },
   computed: {
@@ -68,19 +70,26 @@ export default {
     for(var index in this.gamesState){
       if(this.gamesState[index] === 2) this.stars += 3;
     }
-    if(this.gamesState[0] != 1 && this.gamesState[0] != 2){
+    if(this.gamesState[0] != 2 && this.gamesState[0] != 2){
       const _this = this;
       _this.dialogShowed = true;
-      setTimeout(function(){
-        _this.dialogShowed = false;
-      },5000);
-      setTimeout(function(){
-        _this.dialogUrl = "http://pic.deaso40.com/ljhy/4地图/对话2.png";
-        _this.dialogShowed = true;
-      },6000);
     }
   },
   methods:{
+    clickcontinue(){
+      console.log(this.pic_step);
+      const _this = this;
+      this.newDialog("http://pic.deaso40.com/ljhy/4地图/对话2.png");
+      this.nobigclick = true;
+    },
+    newDialog(url){
+      const _this = this;
+      this.dialogShowed = false;
+      setTimeout(function(){
+        _this.dialogUrl = url;
+        _this.dialogShowed = true;
+      },1000);
+    },
     gameStateId: function(gameId) {
       return this.gamesState[gameId.toString()];
     },
@@ -117,7 +126,7 @@ export default {
       }
       if(this.preStage >= 0 && this.preStage < this.stageList.length){
         console.log(this.stageList[this.preStage].y);
-        this.finishList.push({x: this.stageList[this.preStage].x + 10, 
+        this.finishList.push({x: this.stageList[this.preStage].x + 12, 
           y: (mapxys[this.preStage].y * document.getElementById('app').clientHeight / 568) - 20, 
           src: 'http://pic.deaso40.com/ljhy/4地图/24关按钮/地图_正在完成定位.png',
           width: 30});
@@ -263,7 +272,7 @@ export default {
   }
 }
 .stage_girl{
-  position: absolute;
+  position: fixed;
   width: 128px;
   height: auto;
   bottom: 0px;
@@ -277,5 +286,13 @@ export default {
   bottom: 56px;
   left: 92px;
   z-index: 105;
+}
+.bigclick{
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  background-color: #ffffff;
 }
 </style>

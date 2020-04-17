@@ -725,13 +725,13 @@ export default {
     position: fixed;
     width: 92px;
     height: auto;
-    bottom: 108px;
+    top: 458px;
     left: 102px;
     &-small{
       position: fixed;
       width: 92px;
       height: auto;
-      bottom: 108px;
+      top: 458px;
       left: 92px;
     }
   }
@@ -739,13 +739,13 @@ export default {
     position: fixed;
     width: 94px;
     height: auto;
-    bottom: 104px;
+    top: 454px;
     left: 162px;
     &-small{
       position: fixed;
       width: 92px;
       height: auto;
-      bottom: 108px;
+      top: 458px;
       left: 172px;
     }
   }

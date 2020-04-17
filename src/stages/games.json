@@ -80,7 +80,8 @@
     "game_cells": "http://pic.deaso40.com/ljhy/10谷雨/关卡-规格复制.png",
     "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格7x7.png",
     "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/谷雨.png",
-    "finish_pic": "http://pic.deaso40.com/ljhy/10谷雨/谜底-谷雨复制.png"
+    "finish_pic": "http://pic.deaso40.com/ljhy/10谷雨/谜底-谷雨复制.png",
+    "answer":[[0,1,0,0,1,0,0],[0,0,1,0,0,1,0],[1,1,0,1,0,0,1],[0,1,1,1,1,1,1],[1,1,0,1,0,0,1],[0,0,1,0,0,1,0],[0,1,0,0,1,0,0]]
   },
   {
     "id": 6,
@@ -93,7 +94,9 @@
     "game_cells": "http://pic.deaso40.com/ljhy/11立夏/关卡-规格复制 2.png",
     "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格10x10.png",
     "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/立夏.png",
-    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-立夏复制.png"
+    "finish_pic": "http://pic.deaso40.com/ljhy/11立夏/谜底-立夏复制 2.png",
+    "answer":[[0,0,0,0,0,0,1,1,1,0],[0,0,0,1,1,0,1,1,1,0],[0,0,0,1,1,1,0,1,1,0],[0,1,1,0,1,1,1,0,1,0],[0,1,1,1,0,1,1,0,0,1],
+      [0,0,1,1,1,0,0,0,1,1],[1,1,0,1,1,0,1,1,0,1],[1,1,1,0,0,0,1,1,0,0],[1,1,1,1,0,1,0,0,1,1],[0,0,0,0,1,1,1,0,1,0]]
   },
   {
     "id": 7,
@@ -106,7 +109,9 @@
     "game_cells": "http://pic.deaso40.com/ljhy/12小满/关卡-规格复制 3.png",
     "game_back": "http://pic.deaso40.com/ljhy/12小满/方格9x9.png",
     "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/小满.png",
-    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-小满.png"
+    "finish_pic": "http://pic.deaso40.com/ljhy/12小满/谜底-小满.png",
+    "answer":[[0,0,1,1,1,1,1,0,0],[0,1,1,1,1,1,1,1,0],[1,1,1,0,0,0,1,1,1],[1,1,1,0,1,0,1,1,1],[1,1,1,1,0,0,1,1,1],
+      [1,1,1,0,1,0,1,1,1],[1,1,1,0,0,0,1,1,1],[0,1,1,1,1,1,1,1,0],[0,0,1,1,1,1,1,0,0]]
   },
   {
     "id": 8,
@@ -119,7 +124,9 @@
     "game_cells": "http://pic.deaso40.com/ljhy/11立夏/关卡-规格复制 2.png",
     "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格10x10.png",
     "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/芒种.png",
-    "finish_pic": "http://pic.deaso40.com/ljhy/13芒种/谜底-芒种.png"
+    "finish_pic": "http://pic.deaso40.com/ljhy/13芒种/谜底-芒种.png",
+    "answer":[[0,1,1,1,1,1,1,1,1,0],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1],[1,1,0,0,0,0,0,0,1,1],[0,1,1,0,0,0,0,0,0,1],
+      [1,1,0,0,0,0,0,0,1,1],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,0,1],[0,1,1,1,1,1,1,0,0,0]]
   },
   {
     "id": 9,
@@ -145,7 +152,7 @@
     "game_cells": "http://pic.deaso40.com/ljhy/11立夏/关卡-规格复制 2.png",
     "game_back": "http://pic.deaso40.com/ljhy/关卡背景补充/方格10x10.png",
     "finish_title": "http://pic.deaso40.com/ljhy/完成关卡后标题/小暑.png",
-    "finish_pic": "http://pic.deaso40.com/ljhy/8春分/谜底-小暑.png"
+    "finish_pic": "http://pic.deaso40.com/ljhy/15小暑/谜底-小暑.png"
   },
   {
     "id": 11,

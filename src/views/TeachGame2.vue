@@ -23,7 +23,7 @@
     <!-- </transition> -->
     <transition name="fade">
       <div v-show="dialogShowed">
-        <img class="finish_dialog" :src="dialogSrc()"></img>
+        <img class="finish_dialog" @click="clickcontinue" :src="dialogSrc()"></img>
       </div>
     </transition>
     <GameField
@@ -129,6 +129,7 @@ export default {
       else if(this.pic_step == 36){ this.pic_step += 3; this.nextpic();}
       else if(this.pic_step == 51){ this.pic_step += 3; this.nextpic();}
       else if(this.pic_step == 56){ this.pic_step += 3; this.nextpic();}
+      else if(this.pic_step == 66){ this.pic_step += 3; this.nextpic();}
     },
     nextpic(){
       const _this = this;
@@ -168,8 +169,7 @@ export default {
       else if(this.pic_step == 61){this.pic_step += 3; this.dialogShowed = true;}
       if(this.pic_step == 64){this.nobigclick = true; return;}
       else if(this.pic_step == 65){this.dialogShowed = false;}
-      else if(this.pic_step == 66){this.pic_step += 3; this.dialogShowed = true;}
-      if(this.pic_step == 69){this.nobigclick = true; return;}
+      else if(this.pic_step == 66){this.dialogShowed = true;}
       else if(this.pic_step == 70){this.dialogShowed = false;}
       else if(this.pic_step == 71){this.pic_step += 3; this.dialogShowed = true;}
       if(this.pic_step == 74){this.nobigclick = true; return;}

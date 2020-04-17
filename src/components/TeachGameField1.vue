@@ -677,10 +677,10 @@ export default {
         this.updateFilledState(x, y);
       }
 
-      this.$store.dispatch(ActionsTypes.SET_GAME_STATE, {
-        id: this.$props.gameData['id'],
-        state: this.isFinished ? variables.GAME_IS_FINISHED : variables.GAME_IN_PROCESS
-      });
+      // this.$store.dispatch(ActionsTypes.SET_GAME_STATE, {
+      //   id: this.$props.gameData['id'],
+      //   state: this.isFinished ? variables.GAME_IS_FINISHED : variables.GAME_IN_PROCESS
+      // });
 
       this.$store.dispatch(ActionsTypes.SAVE_GAME_PROCESS, {
         id: this.$props.gameData['id'],

@@ -230,6 +230,7 @@ export default {
       state: variables.GAME_IN_PROCESS
     });
     this.timer = setInterval(this.startTimer, 1000);
+    this.$refs.gameField.adjustFieldToScreen();
   },
   destroyed(){
     clearInterval(this.timer);

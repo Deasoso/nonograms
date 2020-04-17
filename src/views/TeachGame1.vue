@@ -48,7 +48,7 @@
     <!-- </transition> -->
     <transition name="fade">
       <div v-show="dialogShowed">
-        <img class="finish_dialog" :src="dialogSrc()"></img>
+        <img class="finish_dialog" @click="clickcontinue" :src="dialogSrc()"></img>
       </div>
     </transition>
     <div v-show="pic_step > 35" class="gameField">
@@ -148,10 +148,16 @@ export default {
     clickcontinue(){
       console.log(this.pic_step);
       const _this = this;
-      if(this.pic_step == 1){ this.pic_step += 3; this.nextpic(); setTimeout(function(){ _this.pic_step += 4; _this.nextpic()},4000)}
+      if(this.pic_step == 1){ 
+        this.pic_step += 3; 
+        this.nextpic(); 
+        setTimeout(function(){ _this.pic_step += 4; _this.nextpic()},4000)
+        setTimeout(function(){ _this.pic_step += 4; _this.nextpic()},8000)
+        setTimeout(function(){ _this.pic_step += 4; _this.nextpic()},12000)
+      }
       // else if(this.pic_step == 6){ this.pic_step += 3; this.nextpic(); setTimeout(function(){ _this.nextpic()},1000)}
-      else if(this.pic_step == 11){ this.pic_step += 3; this.nextpic(); setTimeout(function(){ _this.nextpic()},1000)}
-      else if(this.pic_step == 16){ this.pic_step += 3; this.nextpic(); setTimeout(function(){ _this.nextpic()},1000)}
+      // else if(this.pic_step == 11){ this.pic_step += 3; this.nextpic(); setTimeout(function(){ _this.nextpic()},1000)}
+      // else if(this.pic_step == 16){ this.pic_step += 3; this.nextpic(); setTimeout(function(){ _this.nextpic()},1000)}
       else if(this.pic_step == 21){ this.pic_step += 3; this.nextpic();}
       else if(this.pic_step == 26){ this.pic_step += 3; this.nextpic();}
       else if(this.pic_step == 31){ this.pic_step += 3; this.nextpic();}
@@ -533,6 +539,7 @@ export default {
     height: auto;
     top: 192px;
     left: 86px;
+    pointer-events: none;
     z-index: 130;
   }
   &-yellow2{

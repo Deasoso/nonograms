@@ -88,6 +88,7 @@ export default {
     }
   },
   mounted(){
+    localStorage.clear();
     this.nextpic(true);
   },
   methods:{
