@@ -113,8 +113,8 @@ export default {
       var addxy = {};
       for (var index in mapxys){
         addxy = mapxys[index];
-        if(this.gamesState[index] === 2) addxy.src = mapxys[index].stages_finished_pic;
-        else if(this.gamesState[index] === 1) addxy.src = mapxys[index].stages_finishing_pic;
+        if(index < this.preStage) addxy.src = mapxys[index].stages_finished_pic;
+        else if(index == this.preStage) addxy.src = mapxys[index].stages_finishing_pic;
         else addxy.src = mapxys[index].stages_not_finished_pic;
         this.addstage(addxy);
         if(this.gamesState[index] === 2){

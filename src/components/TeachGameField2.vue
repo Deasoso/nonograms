@@ -20,26 +20,26 @@
       </div>
       <!-- 以上一段opacity为0，仅仅用于计算点击 -->
       <transition name="fade">
-        <img v-show="pic_step < 64 && pic_step > 55" class="select-fangge-small" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/方格.png" />
+        <img v-show="pic_step < 59 && pic_step > 55" class="select-fangge-small" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/方格.png" />
       </transition>
       <transition name="fade">
-        <img v-show="pic_step < 64 && pic_step > 55" class="select-bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/针线选中.png" />
+        <img v-show="pic_step < 59 && pic_step > 55" class="select-bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/针线选中.png" />
       </transition>
       <transition name="fade">
-        <img v-show="pic_step < 57 && pic_step > 55" class="righthand" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
+        <img v-show="pic_step < 60 && pic_step > 55" class="righthand" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
       </transition>
       <transition name="fade">
-        <img class="hand2" v-show="pic_step < 64 && pic_step > 57" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
+        <img class="hand2" v-show="pic_step < 65 && pic_step > 59 && handshow1 == true" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
       </transition>
       <transition name="fade">
-        <img v-show="pic_step < 69 && pic_step > 65" class="lefthand" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
+        <img v-show="pic_step < 70 && pic_step > 65" class="lefthand" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
       </transition>
       <transition name="fade">
-        <img class="hand3" v-show="pic_step < 74 && pic_step > 69" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
+        <img class="hand3" v-show="pic_step < 75 && pic_step > 69 && handshow2 == true" src="http://pic.deaso40.com/ljhy/3基础教程/2/提示手势.png" />
       </transition>
-      <div v-show="pic_step > 63">
-        <img class="select-bu-small" @click="selected_bu=false" v-show="selected_bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/针线.png" />
-        <img class="select-fangge-small" @click="selected_bu=true" v-show="!selected_bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/方格.png" />
+      <div v-show="pic_step > 58">
+        <img class="select-bu-small" @click="unselect_bu()" v-show="selected_bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/针线.png" />
+        <img class="select-fangge-small" @click="select_bu()" v-show="!selected_bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/方格.png" />
         <img class="select-bu" v-show="!selected_bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/针线选中.png" />
         <img class="select-fangge" v-show="selected_bu" src="http://pic.deaso40.com/ljhy/9清明/1进阶教程/方格选中.png" />
       </div>
@@ -122,6 +122,8 @@ export default {
       teach_stage: 0,
       pic_step: 0,
       selected_bu: false,
+      handshow1: true,
+      handshow2: true,
       variables
     };
   },
@@ -210,6 +212,20 @@ export default {
   },
 
   methods: {
+    select_bu(){
+      console.log(this.pic_step);
+      this.selected_bu = true;
+      if(this.pic_step == 59){
+        this.$emit('nextpic');
+      }
+    },
+    unselect_bu(){
+      console.log(this.pic_step);
+      this.selected_bu = false;
+      if(this.pic_step == 69){
+        this.$emit('nextpic');
+      }
+    },
     update_step(){
       // console.log(this.filledCells);
       console.log(this.pic_step);
@@ -252,6 +268,14 @@ export default {
         this.cellState(5, 4) == variables.CELL_CANCELLED &&
         this.pic_step == 64){
           this.$emit('nextpic');
+      }
+      if(this.pic_step == 64){
+        console.log('6969');
+        this.handshow1 = false;
+      }
+      if(this.pic_step == 74){
+        console.log('6969');
+        this.handshow2 = false;
       }
       if(this.filledCells[4][5] &&
         this.filledCells[1][1] &&
@@ -670,7 +694,6 @@ export default {
       }else{
         newState = variables.CELL_EMPTY;
       }
-
       this.setCellState(newState, x, y);
     },
 
